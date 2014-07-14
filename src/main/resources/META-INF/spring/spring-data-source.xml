@@ -1,0 +1,61 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:jee="http://www.springframework.org/schema/jee"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:p="http://www.springframework.org/schema/p" 
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+	http://www.springframework.org/schema/util	
+	http://www.springframework.org/schema/util/spring-util.xsd	
+	http://www.springframework.org/schema/jee 
+	http://www.springframework.org/schema/jee/spring-jee.xsd
+	http://www.springframework.org/schema/aop 
+	http://www.springframework.org/schema/aop/spring-aop.xsd
+	http://www.springframework.org/schema/tx 
+	http://www.springframework.org/schema/tx/spring-tx.xsd">
+ 
+   	<!-- ====================================================================== -->
+	<!-- data source settings													-->
+	<!-- ====================================================================== -->	
+ 	    
+    <beans profile="server">     
+
+	    <bean id="mooMoneyDataSource" 
+	    	class="org.springframework.jndi.JndiObjectFactoryBean">
+	        <property name="jndiName" value="java:comp/env/jdbc/mooMoneyDataSource"/>
+	    </bean>
+    </beans>
+ 
+  	<!-- ====================================================================== -->
+	<!-- transaction manager settings											-->
+	<!-- ====================================================================== -->	
+  	<beans profile="mock">
+
+ 		<bean id="mooMoneyTransactionManager"
+     		class="org.springframework.batch.support.transaction.ResourcelessTransactionManager" />
+
+	</beans>  
+	   
+    <beans profile="test,server">      
+    
+		<bean id="mooMoneyTransactionManager"
+			class="org.springframework.jdbc.datasource.DataSourceTransactionManager"
+			p:dataSource-ref="mooMoneyDataSource" />
+				
+		<aop:config>
+			<aop:pointcut id="serviceOperation" expression="execution(* com.riviere.moomoney.manager.*Manager.*(..))"/>
+			<aop:advisor advice-ref="mooMoneyTxAdvice" pointcut-ref="serviceOperation" order="20" />	
+		</aop:config>
+		
+		<tx:advice id="mooMoneyTxAdvice" transaction-manager="mooMoneyTransactionManager">
+		<tx:attributes>
+				<tx:method name="get*" read-only="true"/>			
+				<tx:method name="*" rollback-for="MooMoneyException"/>
+			</tx:attributes>
+		</tx:advice>					
+		
+	</beans>
+	
+</beans>

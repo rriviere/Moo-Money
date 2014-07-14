@@ -1,0 +1,49 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans     
+        http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+        http://www.springframework.org/schema/context 
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<!-- ====================================================================== -->
+	<!-- activate annotations for beans already registered in the  		 		-->
+	<!-- application context.													-->
+	<!-- ====================================================================== -->	
+	<context:annotation-config/>
+	
+	<!-- ====================================================================== -->
+	<!-- scan packages to find and register beans within the application  		-->
+	<!-- context.																-->
+	<!-- ====================================================================== -->		
+	<context:component-scan base-package="com.riviere.moomoney.dao.mapper" />	
+	<context:component-scan base-package="com.riviere.moomoney.manager" />
+	<context:component-scan base-package="com.riviere.moomoney.converter" />
+	<context:component-scan base-package="com.riviere.moomoney.interceptor" />
+	
+	<!-- ====================b================================================= -->
+	<!-- import bean definitions to use in the application context  		 	-->
+	<!-- ====================================================================== -->	
+	<import resource="spring-resources.xml" />
+	<import resource="spring-managers.xml" />
+	<import resource="spring-controllers.xml" />
+   	<import resource="spring-security-common.xml" />
+   	<import resource="spring-interceptors.xml" />
+   	<import resource="spring-cache.xml" />
+   	<import resource="spring-data-source.xml" />	 
+   	 
+	<!-- ====================================================================== -->
+	<!-- conditional imports										  		 	-->
+	<!-- ====================================================================== -->	      	
+	<beans profile="mock">
+		<import resource="spring-database-mock.xml" />
+		<import resource="spring-security-mock.xml" />
+	</beans>
+
+	<beans profile="test,server">    	
+		<import resource="spring-database.xml" />
+		<import resource="spring-security.xml" />				
+	</beans>
+	
+</beans>

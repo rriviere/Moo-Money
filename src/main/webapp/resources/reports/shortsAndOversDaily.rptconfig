@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.23" id="1">
+    <list-property name="configVars">
+        <structure>
+            <property name="name">__isdisplay__bp_posId_47_0</property>
+            <property name="value">1012362</property>
+        </structure>
+        <structure>
+            <property name="name">__isdisplay__bp_posStore_48_1</property>
+            <property name="value">1</property>
+        </structure>
+        <structure>
+            <property name="name">__isdisplay__bp_posDisplayName_49_2</property>
+            <property name="value">Richard Riviere</property>
+        </structure>
+        <structure>
+            <property name="name">__isdisplay__bp_weekEnding_51_3</property>
+            <property name="value">2014-02-16 00:00:00</property>
+        </structure>
+        <structure>
+            <property name="name">bp_posStore_48_4</property>
+            <property name="value">1</property>
+        </structure>
+        <structure>
+            <property name="name">bp_posStore_48_type_</property>
+            <property name="value">string</property>
+        </structure>
+        <structure>
+            <property name="name">bp_weekEnding_51_5</property>
+            <property name="value">2014-02-16 00:00:00</property>
+        </structure>
+        <structure>
+            <property name="name">bp_weekEnding_51_type_</property>
+            <property name="value">string</property>
+        </structure>
+        <structure>
+            <property name="name">bp_posDisplayName_49_6</property>
+            <property name="value">Richard Riviere</property>
+        </structure>
+        <structure>
+            <property name="name">bp_posDisplayName_49_type_</property>
+            <property name="value">string</property>
+        </structure>
+        <structure>
+            <property name="name">bp_posId_47_7</property>
+            <property name="value">1012362</property>
+        </structure>
+        <structure>
+            <property name="name">bp_posId_47_type_</property>
+            <property name="value">string</property>
+        </structure>
+    </list-property>
+</report>

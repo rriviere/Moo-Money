@@ -1,0 +1,47 @@
+      
+/******************************************************************************
+ * Custom Moo Styles
+ ******************************************************************************/
+
+.login-error {
+	text-align:center;
+	color:#880000;
+}
+
+
+iframe.uploadFrame { 
+	border-color: #D0D0D0 !important;
+    border-style: solid !important;
+    border-width: 1px !important;
+    overflow: auto !important;
+    position: relative !important;
+    height: 270px !important;
+    width: 1100px !important; 
+}
+/******************************************************************************
+ * Drop Zone
+ ******************************************************************************/
+#dropzone {
+    background: #ccccc;
+    height: 90px;
+    line-height: 60px;
+    text-align: center;
+    font-weight: bold;
+}
+#dropzone.in {
+    width: 600px;
+    height: 200px;
+    line-height: 200px;
+    font-size: larger;
+}
+#dropzone.hover {
+    background: lawngreen;
+}
+#dropzone.fade {
+    -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    -ms-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+    opacity: 1;
+}

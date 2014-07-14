@@ -1,0 +1,3 @@
+   	<script src="resources/js/jquery-ui-1.8.16.custom.min.js"></script>
+	<script src="resources/js/jquery.ui.datepicker-en-AU.js" ></script>
+	<script src="resources/js/jquery.ui.datepicker.validation.min.js" ></script>

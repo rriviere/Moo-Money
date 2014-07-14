@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd" >
+<log4j:configuration debug="false">
+
+	<!-- ==============================	-->
+	<!--      Application logging 		-->
+	<!-- ============================== -->
+	<appender name="rep.man.application.console" class="org.apache.log4j.ConsoleAppender">
+	    <param name="target" value="System.out" />
+	    <param name="threshold" value="info" />
+	    <layout class="org.apache.log4j.PatternLayout">
+	        <param name="ConversionPattern" value="[%p] %d{ISO8601} %c %M - %m%n" />
+	    </layout>
+	</appender>
+
+	<appender name="rep.man.application.file" class="org.apache.log4j.RollingFileAppender">
+		<param name="File" value="${REP_MAN_LOG_DIR}/mooMoney/rep-man-application.log"/>
+		<param name="MaxFileSize" value="5MB"/>
+		<param name="MaxBackupIndex" value="20"/>
+		<layout class="org.apache.log4j.PatternLayout">
+		  	<!-- Layout: Date Priority "thread" RemoteAddr UserID [category] Message\n -->
+		  	<param name="ConversionPattern" value="[%p] %d{ISO8601} %c %M - %m%n"/>
+		</layout>
+		<filter class="org.apache.log4j.varia.LevelRangeFilter">
+		   <param name="levelMin" value="trace" />
+		   <param name="levelMax" value="warn" />
+		</filter>
+	</appender>
+ 
+	<appender name="rep.man.servlet.file" class="org.apache.log4j.RollingFileAppender">
+		<param name="File" value="${REP_MAN_LOG_DIR}/mooMoney/rep-man-servlet.csv"/>
+		<param name="append" value="false" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<!-- Layout: Date,Time,Priority,RemoteAddr,UserID,Message\n -->
+		   <param name="ConversionPattern" value="%d{yyyy-MM-dd,HH:mm:ss.SSS},%X{remoteAddr},%X{concurrentUserCnt},%X{userId},%m%n"/>
+		</layout>
+		<filter class="org.apache.log4j.varia.LevelRangeFilter">
+		   <param name="levelMin" value="info" />
+		   <param name="levelMax" value="info" />
+		</filter>
+	</appender> 
+	
+	<appender name="rep.man.security.file" class="org.apache.log4j.RollingFileAppender">
+		<param name="File" value="${REP_MAN_LOG_DIR}/mooMoney/rep-man-security.log"/>
+		<param name="MaxFileSize" value="5MB"/>
+		<param name="MaxBackupIndex" value="20"/>
+		<layout class="org.apache.log4j.PatternLayout">
+		  	<!-- Layout: Date Priority "thread" RemoteAddr UserID [category] Message\n -->
+		  	<param name="ConversionPattern" value="[%p] %d{ISO8601} %c %M - %m%n"/>
+		</layout>
+		<filter class="org.apache.log4j.varia.LevelRangeFilter">
+		   <param name="levelMin" value="trace" />
+		   <param name="levelMax" value="warn" />
+		</filter>
+	</appender>	
+	
+	<appender name="rep.man.batch.file" class="org.apache.log4j.RollingFileAppender">
+		<param name="File" value="${REP_MAN_LOG_DIR}/mooMoney/rep-man-batch.log"/>
+		<param name="MaxFileSize" value="5MB"/>
+		<param name="MaxBackupIndex" value="20"/>
+		<layout class="org.apache.log4j.PatternLayout">
+		  	<!-- Layout: Date Priority "thread" RemoteAddr UserID [category] Message\n -->
+		  	<param name="ConversionPattern" value="[%p] %d{ISO8601} %c %M - %m%n"/>
+		</layout>
+		<filter class="org.apache.log4j.varia.LevelRangeFilter">
+		   <param name="levelMin" value="trace" />
+		   <param name="levelMax" value="warn" />
+		</filter>
+	</appender>	
+
+	<appender name="rep.man.error.file" class="org.apache.log4j.RollingFileAppender">
+	  <param name="File" value="${REP_MAN_LOG_DIR}/mooMoney/rep-man-error.log"/>
+	  <param name="MaxFileSize" value="5MB"/>
+	  <param name="MaxBackupIndex" value="20"/>
+	  <layout class="org.apache.log4j.PatternLayout">
+	    <!-- Layout: Date Priority "thread" RemoteAddr UserID [category] Message\n -->
+	    <param name="ConversionPattern" value="[%p] %d{ISO8601} %c %M - %m%n"/>
+	  </layout>
+	  <filter class="org.apache.log4j.varia.LevelRangeFilter">
+	    <param name="levelMin" value="error" />
+	    <param name="levelMax" value="error" />
+	  </filter>
+	</appender>
+
+	<!-- ==========================================	-->
+	<!--      Third party debug logging 		 	-->
+	<!-- ========================================== -->
+	<appender name="spring.security.debug.file" class="org.apache.log4j.FileAppender">
+	    <param name="File" value="${REP_MAN_LOG_DIR}/mooMoney/spring-security.log"/>
+	    <param name="append" value="false" />
+	    <param name="threshold" value="debug" />
+	    <layout class="org.apache.log4j.PatternLayout">
+	        <param name="ConversionPattern" value="%d{ISO8601} %-5p [%c{1}] - %m%n" />
+	    </layout>    
+	</appender>
+   
+	<appender name="spring.cache.debug.file" class="org.apache.log4j.FileAppender">
+	    <param name="File" value="${REP_MAN_LOG_DIR}/mooMoney/spring-cache.log"/>
+	    <param name="append" value="false" />
+	    <param name="threshold" value="debug" />
+	    <layout class="org.apache.log4j.PatternLayout">
+	        <param name="ConversionPattern" value="%d{ISO8601} %-5p [%c{1}] - %m%n" />
+	    </layout>	    
+	</appender>    
+
+	<appender name="spring.web.debug.file" class="org.apache.log4j.FileAppender">
+	    <param name="File" value="${REP_MAN_LOG_DIR}/mooMoney/spring-web.log"/>
+	    <param name="append" value="false" />
+	    <param name="threshold" value="debug" />
+	    <layout class="org.apache.log4j.PatternLayout">
+	        <param name="ConversionPattern" value="%d{ISO8601} %-5p [%c{1}] - %m%n" />
+	    </layout>	    
+	</appender>  
+	
+	<appender name="spring.core.debug.file" class="org.apache.log4j.FileAppender">
+	    <param name="File" value="${REP_MAN_LOG_DIR}/mooMoney/spring-core.log"/>
+	    <param name="append" value="false" />
+	    <param name="threshold" value="debug" />
+	    <layout class="org.apache.log4j.PatternLayout">
+	        <param name="ConversionPattern" value="%d{ISO8601} %-5p [%c{1}] - %m%n" />
+	    </layout>	    
+	</appender> 
+ 
+ 	<!-- ==========================================	-->
+	<!--      Application debug logging 		 	-->
+	<!-- ========================================== -->     	
+	<appender name="rep.man.debug.file" class="org.apache.log4j.RollingFileAppender">
+	  <param name="File" value="${REP_MAN_LOG_DIR}/mooMoney/rep-man-debug.log"/>
+	  <param name="MaxFileSize" value="5MB"/>
+	  <param name="MaxBackupIndex" value="10"/>
+	  <layout class="org.apache.log4j.PatternLayout">
+	    <!-- Layout: Date Priority "thread" RemoteAddr UserID [category] Message\n -->
+	    <param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss.SSS} %-5p &quot;%t&quot; %X{remoteAddr} %X{userId} [%c{3}] %m%n"/>
+	  </layout>
+	  <filter class="org.apache.log4j.varia.LevelRangeFilter">
+	    <param name="levelMax" value="debug" />
+	  </filter>	  
+	</appender>	
+ 
+	<!-- ==============================	-->
+	<!--      Application Loggers	 	-->
+	<!-- ============================== --> 
+    <logger name="com.myer.reporting" additivity="false">   
+    	<level value="info" />
+    	<appender-ref ref="rep.man.application.file" />    
+    	<appender-ref ref="rep.man.debug.file" />
+    </logger>
+    
+	<logger name="com.myer.reporting.interceptor.ExecuteTimeInterceptor" additivity="false">
+		<level value="info" />
+		<appender-ref ref="rep.man.servlet.file" />
+	</logger> 
+	
+    <logger name="org.springframework.batch.core.launch.support" additivity="false">
+        <level value="info" />   
+    	<appender-ref ref="rep.man.batch.file" />    
+    	<appender-ref ref="rep.man.debug.file" />
+    </logger>
+    
+    <logger name="com.myer.reporting.security" additivity="false">
+    	<level value="info" />   
+    	<appender-ref ref="rep.man.security.file" />    
+    	<appender-ref ref="rep.man.debug.file" />
+    </logger>    
+
+	<!-- ==============================	-->
+	<!--      3rd party Loggers	 		-->
+	<!-- ============================== --> 	            
+    <logger name="org.springframework.security">
+    	<level value="debug" />
+        <appender-ref ref="spring.security.debug.file" />
+    </logger>
+    
+    <logger name="net.sf.ehcache">
+    	<level value="debug" />
+        <appender-ref ref="spring.cache.debug.file" />
+    </logger>         
+
+    <logger name="org.springframework.cache">
+    	<level value="debug" /> 
+        <appender-ref ref="spring.cache.debug.file" />
+    </logger>        
+
+    <logger name="org.springframework.web">
+    <level value="debug" />
+        <appender-ref ref="spring.web.debug.file" />
+    </logger>
+    
+    <logger name="org.springframework.core">
+    	<level value="debug" />  
+        <appender-ref ref="spring.core.debug.file" />
+    </logger>
+    
+    <logger name="org.springframework.beans">
+        <level value="debug" />
+        <appender-ref ref="spring.core.debug.file" />
+    </logger>
+    
+    <logger name="org.springframework.context">
+    	<level value="debug" />
+     	<appender-ref ref="spring.core.debug.file" />
+    </logger>
+
+	<!-- ============================================	-->
+	<!--             Root for debugging	 				-->
+	<!--   Change priority value to debug as required 	-->
+	<!-- ============================================	-->           
+    <root>
+        <level value="error"/> 
+        <appender-ref ref="rep.man.application.console" />
+        <appender-ref ref="rep.man.error.file" />        
+    </root>
+</log4j:configuration>

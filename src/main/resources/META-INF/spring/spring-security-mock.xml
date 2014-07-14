@@ -1,0 +1,29 @@
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+	xmlns:beans="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+	http://www.springframework.org/schema/security
+	http://www.sprRingframework.org/schema/security/spring-security.xsd">
+	
+	<beans:bean id="userDetailsDao" class="com.riviere.moomoney.dao.mock.MockUserDetailsDaoImpl">
+		<beans:property name="usernamePasswordMap">
+			<beans:map>
+				<beans:entry key="richard" value="riviere" />				
+				<beans:entry key="sudipto" value="sengupta" />
+				<beans:entry key="shirley" value="shirley" />		
+			</beans:map>
+		</beans:property>
+		<beans:property name="usernameRoleMap">
+			<beans:map>
+				<beans:entry key="richard" value="ROLE_LEVEL7" />
+				<beans:entry key="sudipto" value="ROLE_LEVEL1" />	
+				<!-- Test user that doesn't have access to anything -->									
+				<beans:entry key="shirley" value="none" />		
+			</beans:map>
+		</beans:property>
+	</beans:bean>	
+	
+	<beans:bean id="encoder" 
+		class="org.springframework.security.authentication.encoding.PlaintextPasswordEncoder"/>
+
+</beans:beans>

@@ -1,0 +1,51 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans 
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context 
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/mvc 
+        http://www.springframework.org/schema/mvc/spring-mvc-3.1.xsd">
+
+	<!-- ====================================================================== -->
+	<!-- activate annotations for beans already registered in the  		 		-->
+	<!-- application context.													-->
+	<!-- ====================================================================== -->	
+	<context:annotation-config/>
+
+	<!-- ====================================================================== -->
+	<!-- scan packages to find and register beans within the application  		-->
+	<!-- context.																-->
+	<!-- ====================================================================== -->		
+	<context:component-scan base-package="com.riviere.moomoney.controller" />
+	<context:component-scan base-package="com.riviere.moomoney.manager" />
+	<context:component-scan base-package="com.riviere.moomoney.dao"/>
+	<context:component-scan base-package="com.riviere.moomoney.dao.mapper"/>
+
+	<!-- JSP view resolver -->
+	<bean id="viewResolver" 
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver" 
+    	p:prefix="/WEB-INF/pages/" 
+    	p:suffix=".jsp" 
+    	p:order="1"/>
+	
+	<!-- resources -->
+	<mvc:resources mapping="/resources/**" location="/resources/" />
+	
+	<!-- ====================================================================== -->
+	<!-- declare explicit support for annotation-driven MVC controllers   		-->
+	<!-- i.e. @RequestMapping, @Controller.										-->
+	<!-- ====================================================================== -->			
+	<mvc:annotation-driven conversion-service="applicationConversionService"/>	
+	
+	<!-- interceptors -->
+	<mvc:interceptors>	
+		<ref bean="executeTimeInterceptor"/>
+	    <ref bean="urlInterceptor"/>
+	</mvc:interceptors>	
+		
+</beans>

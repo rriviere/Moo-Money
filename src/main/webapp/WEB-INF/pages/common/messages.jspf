@@ -1,0 +1,50 @@
+<%@ include file="/WEB-INF/pages/common/headerInclude.jspf"%>
+
+<div id="messageBox">
+	<!-- Server side error messages. -->
+	<form:errors path="*" cssClass="error" element="div" />
+	
+	<c:if test="${errorMessages ne null and not empty(errorMessages)}">
+		<!-- Error messages - non form. -->
+		<div class="box error" >
+			<c:forEach items="${errorMessages}" var="message">
+				<c:out value="${message}"/><br/>
+			</c:forEach>
+		</div>
+	</c:if>
+	<c:if test="${exceptionMessages ne null and not empty(exceptionMessages)}">
+		<!-- Error messages - non form. -->
+		<div class="error" >
+			<c:forEach items="${exceptionMessages}" var="exceptionMessage">
+				<c:out value="${exceptionMessage.message}"/>
+			</c:forEach>
+		</div>
+	</c:if>
+	
+	<c:if test="${informationMessages ne null and not empty(informationMessages)}">
+		<!-- Information messages. -->
+		<div class="box info" >
+			<c:forEach items="${informationMessages}" var="message">
+				<c:out value="${message}"/><br/>
+			</c:forEach>
+		</div>
+	</c:if>	
+	<c:if test="${successMessages ne null and not empty(successMessages)}">
+		<!-- Success messages. -->
+		<div class="box success" >
+			<c:forEach items="${successMessages}" var="message">
+				<c:out value="${message}"/><br/>
+			</c:forEach>
+		</div>
+	</c:if>
+	
+	<c:if test="${warningMessages ne null and not empty(warningMessages)}">
+		<!-- Warning messages. -->
+		<div class="box warning">
+			<c:forEach items="${warningMessages}" var="message">
+				<c:out value="${message}"/><br/>
+			</c:forEach>
+		</div>
+	</c:if>
+					
+</div>

@@ -1,0 +1,1619 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.23" id="1">
+    <property name="createdBy">Eclipse BIRT Designer Version 4.3.1.v201309091055 Build &lt;4.3.1.v20130917-1035></property>
+    <property name="units">in</property>
+    <property name="iconFile">/templates/simple_listing.gif</property>
+    <property name="cheatSheet">org.eclipse.birt.report.designer.ui.cheatsheet.simplelisting</property>
+    <property name="layoutPreference">auto layout</property>
+    <property name="bidiLayoutOrientation">ltr</property>
+    <property name="imageDPI">96</property>
+    <data-sources>
+        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="Data Source" id="248">
+            <list-property name="privateDriverProperties">
+                <ex-property>
+                    <name>metadataBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+                <ex-property>
+                    <name>disabledMetadataBidiFormatStr</name>
+                </ex-property>
+                <ex-property>
+                    <name>contentBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+                <ex-property>
+                    <name>disabledContentBidiFormatStr</name>
+                </ex-property>
+            </list-property>
+            <property name="odaDriverClass">com.ibm.db2.jcc.DB2Driver</property>
+            <property name="odaURL">jdbc:db2://10.95.9.103:51000/TE_DFLT</property>
+            <property name="odaUser">trivers</property>
+            <encrypted-property name="odaPassword" encryptionID="base64">a1UrdEVtNW1hZzhwSEU=</encrypted-property>
+            <property name="odaJndiName">jdbc/reportingManagerDataSource</property>
+        </oda-data-source>
+    </data-sources>
+    <data-sets>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="PriceOverride" id="267">
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">TLOGWORKFLOWID</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">TLOGWORKFLOWID</text-property>
+                    <text-property name="heading">TLOGWORKFLOWID</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">TLOGTRANSACTIONID</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">TLOGTRANSACTIONID</text-property>
+                    <text-property name="heading">TLOGTRANSACTIONID</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">LINENUMBER</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">LINENUMBER</text-property>
+                    <text-property name="heading">LINENUMBER</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">WRKFLWPARENTLINENUMBER</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">WRKFLWPARENTLINENUMBER</text-property>
+                    <text-property name="heading">WRKFLWPARENTLINENUMBER</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">LINEWORKFLOWMODIFIER</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">LINEWORKFLOWMODIFIER</text-property>
+                    <text-property name="heading">LINEWORKFLOWMODIFIER</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">TXNDATETIME</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">TXNDATETIME</text-property>
+                    <text-property name="heading">TXNDATETIME</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">LOGICALTERMINALID</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">LOGICALTERMINALID</text-property>
+                    <text-property name="heading">LOGICALTERMINALID</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">EMPLOYEENUMBER</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">EMPLOYEENUMBER</text-property>
+                    <text-property name="heading">EMPLOYEENUMBER</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">SIGNONID</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">SIGNONID</text-property>
+                    <text-property name="heading">SIGNONID</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">TRANSACTIONNUMBER</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">TRANSACTIONNUMBER</text-property>
+                    <text-property name="heading">TRANSACTIONNUMBER</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">LINETYPE</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">LINETYPE</text-property>
+                    <text-property name="heading">LINETYPE</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">ITEMKEY</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">ITEMKEY</text-property>
+                    <text-property name="heading">ITEMKEY</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">ITEMDESCRIPTION</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">ITEMDESCRIPTION</text-property>
+                    <text-property name="heading">ITEMDESCRIPTION</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">ITEMCOUNT</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">ITEMCOUNT</text-property>
+                    <text-property name="heading">ITEMCOUNT</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">REGULARPRICE</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">REGULARPRICE</text-property>
+                    <text-property name="heading">REGULARPRICE</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">NEWPRICE</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">NEWPRICE</text-property>
+                    <text-property name="heading">NEWPRICE</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">RETAILAMOUNT</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">RETAILAMOUNT</text-property>
+                    <text-property name="heading">RETAILAMOUNT</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">OVERRIDEAMOUNT</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">OVERRIDEAMOUNT</text-property>
+                    <text-property name="heading">OVERRIDEAMOUNT</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">SELLAMOUNT</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">SELLAMOUNT</text-property>
+                    <text-property name="heading">SELLAMOUNT</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">SUPPLEMENTALDATA</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">SUPPLEMENTALDATA</text-property>
+                    <text-property name="heading">SUPPLEMENTALDATA</text-property>
+                </structure>
+            </list-property>
+            <list-property name="parameters"/>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">TLOGWORKFLOWID</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">TLOGTRANSACTIONID</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">LINENUMBER</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">WRKFLWPARENTLINENUMBER</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">5</property>
+                        <property name="name">LINEWORKFLOWMODIFIER</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">6</property>
+                        <property name="name">TXNDATETIME</property>
+                        <property name="dataType">date-time</property>
+                    </structure>
+                    <structure>
+                        <property name="position">7</property>
+                        <property name="name">LOGICALTERMINALID</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">8</property>
+                        <property name="name">EMPLOYEENUMBER</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">9</property>
+                        <property name="name">SIGNONID</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">10</property>
+                        <property name="name">TRANSACTIONNUMBER</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">11</property>
+                        <property name="name">LINETYPE</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">12</property>
+                        <property name="name">ITEMKEY</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">13</property>
+                        <property name="name">ITEMDESCRIPTION</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">14</property>
+                        <property name="name">ITEMCOUNT</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">15</property>
+                        <property name="name">REGULARPRICE</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">16</property>
+                        <property name="name">NEWPRICE</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">17</property>
+                        <property name="name">RETAILAMOUNT</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">18</property>
+                        <property name="name">OVERRIDEAMOUNT</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">19</property>
+                        <property name="name">SELLAMOUNT</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">20</property>
+                        <property name="name">SUPPLEMENTALDATA</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">Data Source</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">TLOGWORKFLOWID</property>
+                    <property name="nativeName">TLOGWORKFLOWID</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">TLOGTRANSACTIONID</property>
+                    <property name="nativeName">TLOGTRANSACTIONID</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">LINENUMBER</property>
+                    <property name="nativeName">LINENUMBER</property>
+                    <property name="dataType">integer</property>
+                    <property name="nativeDataType">4</property>
+                </structure>
+                <structure>
+                    <property name="position">4</property>
+                    <property name="name">WRKFLWPARENTLINENUMBER</property>
+                    <property name="nativeName">WRKFLWPARENTLINENUMBER</property>
+                    <property name="dataType">integer</property>
+                    <property name="nativeDataType">4</property>
+                </structure>
+                <structure>
+                    <property name="position">5</property>
+                    <property name="name">LINEWORKFLOWMODIFIER</property>
+                    <property name="nativeName">LINEWORKFLOWMODIFIER</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">6</property>
+                    <property name="name">TXNDATETIME</property>
+                    <property name="nativeName">TXNDATETIME</property>
+                    <property name="dataType">date-time</property>
+                    <property name="nativeDataType">93</property>
+                </structure>
+                <structure>
+                    <property name="position">7</property>
+                    <property name="name">LOGICALTERMINALID</property>
+                    <property name="nativeName">LOGICALTERMINALID</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">8</property>
+                    <property name="name">EMPLOYEENUMBER</property>
+                    <property name="nativeName">EMPLOYEENUMBER</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">9</property>
+                    <property name="name">SIGNONID</property>
+                    <property name="nativeName">SIGNONID</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">10</property>
+                    <property name="name">TRANSACTIONNUMBER</property>
+                    <property name="nativeName">TRANSACTIONNUMBER</property>
+                    <property name="dataType">integer</property>
+                    <property name="nativeDataType">4</property>
+                </structure>
+                <structure>
+                    <property name="position">11</property>
+                    <property name="name">LINETYPE</property>
+                    <property name="nativeName">LINETYPE</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">12</property>
+                    <property name="name">ITEMKEY</property>
+                    <property name="nativeName">ITEMKEY</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">13</property>
+                    <property name="name">ITEMDESCRIPTION</property>
+                    <property name="nativeName">ITEMDESCRIPTION</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">14</property>
+                    <property name="name">ITEMCOUNT</property>
+                    <property name="nativeName">ITEMCOUNT</property>
+                    <property name="dataType">float</property>
+                    <property name="nativeDataType">8</property>
+                </structure>
+                <structure>
+                    <property name="position">15</property>
+                    <property name="name">REGULARPRICE</property>
+                    <property name="nativeName">REGULARPRICE</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">3</property>
+                </structure>
+                <structure>
+                    <property name="position">16</property>
+                    <property name="name">NEWPRICE</property>
+                    <property name="nativeName">NEWPRICE</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">3</property>
+                </structure>
+                <structure>
+                    <property name="position">17</property>
+                    <property name="name">RETAILAMOUNT</property>
+                    <property name="nativeName">RETAILAMOUNT</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">3</property>
+                </structure>
+                <structure>
+                    <property name="position">18</property>
+                    <property name="name">OVERRIDEAMOUNT</property>
+                    <property name="nativeName">OVERRIDEAMOUNT</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">3</property>
+                </structure>
+                <structure>
+                    <property name="position">19</property>
+                    <property name="name">SELLAMOUNT</property>
+                    <property name="nativeName">SELLAMOUNT</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">3</property>
+                </structure>
+                <structure>
+                    <property name="position">20</property>
+                    <property name="name">SUPPLEMENTALDATA</property>
+                    <property name="nativeName">SUPPLEMENTALDATA</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[SELECT wtl.tlogWorkflowID, hdr.tlogTransactionID, lpr.lineNumber, lpr.wrkflwParentLineNumber, lpr.lineWorkflowModifier, hdr.txnDateTime, substr(hdr.logicalTerminalID,5,3) as logicalTerminalID , hdr.employeeNumber, hdr.signOnID, hdr.transactionNumber, lpr.lineType, lpr.itemKey, lpr.itemDescription, abs(lpr.quantity) AS itemCount, abs(lpr.regularPrice) AS regularPrice, abs(lpr.price) AS newPrice, lpr.previousExtendedPrice AS retailAmount, lpr.extendedPrice AS overrideAmount, lpr.modifiedExtendedPrice AS sellAmount, lpr.supplementalData FROM epos.CCFLinePriceReduction lpr INNER JOIN epos.CCFTrxHeader hdr ON hdr.businessDate = lpr.businessDate AND hdr.tlogTransactionID = lpr.tlogTransactionID AND hdr.trainingMode <> 'Y' LEFT OUTER JOIN epos.CCFWorkflowTransactions wtl ON wtl.businessDate = hdr.businessDate AND wtl.tlogTransactionID = hdr.tlogTransactionID ,  epos.SiteDirectory sd  WHERE lpr.actionCode = 'PRICE_OVERRIDE' AND lpr.recognizeRevenue = 'Y' AND sd.siteID='1' AND  hdr.siteDirectoryID = sd.siteDirectoryID  AND hdr.businessDate='2013-12-01 00:00:00.0' ORDER BY hdr.txnDateTime Desc WITH UR     ]]></xml-property>
+        </oda-data-set>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="priceoverridesummary" id="350">
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">PRICE_OVERRIDE_COUNT</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">PRICE_OVERRIDE_COUNT</text-property>
+                    <text-property name="heading">PRICE_OVERRIDE_COUNT</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">TRANSACTION_COUNT</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">TRANSACTION_COUNT</text-property>
+                    <text-property name="heading">TRANSACTION_COUNT</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">PRICE_OVERRIDE_TOTAL</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">PRICE_OVERRIDE_TOTAL</text-property>
+                    <text-property name="heading">PRICE_OVERRIDE_TOTAL</text-property>
+                </structure>
+            </list-property>
+            <list-property name="parameters"/>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">PRICE_OVERRIDE_COUNT</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">TRANSACTION_COUNT</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">PRICE_OVERRIDE_TOTAL</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">Data Source</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">PRICE_OVERRIDE_COUNT</property>
+                    <property name="nativeName">PRICE_OVERRIDE_COUNT</property>
+                    <property name="dataType">integer</property>
+                    <property name="nativeDataType">4</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">TRANSACTION_COUNT</property>
+                    <property name="nativeName">TRANSACTION_COUNT</property>
+                    <property name="dataType">integer</property>
+                    <property name="nativeDataType">4</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">PRICE_OVERRIDE_TOTAL</property>
+                    <property name="nativeName">PRICE_OVERRIDE_TOTAL</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">3</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[SELECT SUM(ts.priceOverrideCount) AS PRICE_OVERRIDE_COUNT, SUM(ts.priceOverrideTxnCount) AS TRANSACTION_COUNT, SUM(ts.priceOverrideAmount) AS PRICE_OVERRIDE_TOTAL  FROM epos.TotalsSummary ts, epos.TotalsHeader sng, epos.SiteDirectory sd  WHERE ts.totalsHeaderID=sng.totalsHeaderID AND sng.siteDirectoryID = sd.siteDirectoryID AND sd.orgID = 'MYER'  AND (sd.siteID='1' AND date(sng.businessDate)='2013-12-01') WITH UR ]]></xml-property>
+        </oda-data-set>
+    </data-sets>
+    <cubes>
+        <tabular-cube name="Data Cube" id="349">
+            <property name="dataSet">PriceOverride</property>
+            <property name="autoKey">true</property>
+        </tabular-cube>
+    </cubes>
+    <styles>
+        <style name="report" id="24">
+            <property name="fontFamily">sans-serif</property>
+            <property name="fontSize">10pt</property>
+        </style>
+        <style name="crosstab-cell" id="25">
+            <property name="borderBottomColor">#CCCCCC</property>
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">1pt</property>
+            <property name="borderLeftColor">#CCCCCC</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">1pt</property>
+            <property name="borderRightColor">#CCCCCC</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">1pt</property>
+            <property name="borderTopColor">#CCCCCC</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">1pt</property>
+        </style>
+        <style name="crosstab" id="26">
+            <property name="borderBottomColor">#CCCCCC</property>
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">1pt</property>
+            <property name="borderLeftColor">#CCCCCC</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">1pt</property>
+            <property name="borderRightColor">#CCCCCC</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">1pt</property>
+            <property name="borderTopColor">#CCCCCC</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">1pt</property>
+        </style>
+    </styles>
+    <page-setup>
+        <simple-master-page name="Simple MasterPage" id="2">
+            <property name="rightMargin">0in</property>
+            <page-footer>
+                <text id="3">
+                    <property name="contentType">html</property>
+                    <text-property name="content"><![CDATA[<value-of>new Date()</value-of>]]></text-property>
+                </text>
+            </page-footer>
+        </simple-master-page>
+    </page-setup>
+    <body>
+        <image name="Myer" id="266">
+            <property name="height">0.5833333333333334in</property>
+            <property name="width">1.7916666666666667in</property>
+            <property name="source">embed</property>
+            <property name="imageName">mm.jpg</property>
+        </image>
+        <text id="395">
+            <property name="backgroundAttachment">scroll</property>
+            <property name="backgroundPositionX">0%</property>
+            <property name="backgroundPositionY">0%</property>
+            <property name="backgroundRepeat">repeat</property>
+            <property name="fontFamily">sans-serif</property>
+            <property name="fontSize">x-large</property>
+            <property name="fontWeight">bold</property>
+            <property name="fontStyle">normal</property>
+            <property name="fontVariant">normal</property>
+            <property name="color">black</property>
+            <property name="textLineThrough">none</property>
+            <property name="textOverline">none</property>
+            <property name="textUnderline">none</property>
+            <property name="borderBottomColor">black</property>
+            <property name="borderBottomStyle">none</property>
+            <property name="borderBottomWidth">medium</property>
+            <property name="borderLeftColor">black</property>
+            <property name="borderLeftStyle">none</property>
+            <property name="borderLeftWidth">medium</property>
+            <property name="borderRightColor">black</property>
+            <property name="borderRightStyle">none</property>
+            <property name="borderRightWidth">medium</property>
+            <property name="borderTopColor">black</property>
+            <property name="borderTopStyle">none</property>
+            <property name="borderTopWidth">medium</property>
+            <property name="marginTop">0pt</property>
+            <property name="marginLeft">0pt</property>
+            <property name="marginBottom">0pt</property>
+            <property name="marginRight">0pt</property>
+            <property name="paddingTop">1pt</property>
+            <property name="paddingLeft">1pt</property>
+            <property name="paddingBottom">1pt</property>
+            <property name="paddingRight">1pt</property>
+            <property name="textAlign">center</property>
+            <property name="letterSpacing">normal</property>
+            <property name="lineHeight">normal</property>
+            <property name="orphans">2</property>
+            <property name="textTransform">none</property>
+            <property name="whiteSpace">normal</property>
+            <property name="widows">2</property>
+            <property name="wordSpacing">normal</property>
+            <property name="display">block</property>
+            <property name="pageBreakAfter">auto</property>
+            <property name="pageBreakBefore">auto</property>
+            <property name="pageBreakInside">auto</property>
+            <property name="showIfBlank">false</property>
+            <property name="canShrink">false</property>
+            <property name="overflow">hidden</property>
+            <property name="contentType">auto</property>
+            <text-property name="content"><![CDATA[PRICE OVERRIDE SUMMARY REPORT]]></text-property>
+        </text>
+        <table id="373">
+            <property name="dataSet">priceoverridesummary</property>
+            <list-property name="boundDataColumns">
+                <structure>
+                    <property name="name">PRICE_OVERRIDE_COUNT</property>
+                    <text-property name="displayName">PRICE_OVERRIDE_COUNT</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["PRICE_OVERRIDE_COUNT"]</expression>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="name">TRANSACTION_COUNT</property>
+                    <text-property name="displayName">TRANSACTION_COUNT</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["TRANSACTION_COUNT"]</expression>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="name">PRICE_OVERRIDE_TOTAL</property>
+                    <text-property name="displayName">PRICE_OVERRIDE_TOTAL</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["PRICE_OVERRIDE_TOTAL"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+            </list-property>
+            <column id="392"/>
+            <column id="393"/>
+            <column id="394"/>
+            <header>
+                <row id="374">
+                    <property name="backgroundColor">silver</property>
+                    <cell id="375">
+                        <property name="borderBottomColor">#000000</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderLeftColor">#000000</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderRightColor">#000000</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderTopColor">#000000</property>
+                        <property name="borderTopStyle">solid</property>
+                        <label id="378">
+                            <property name="backgroundAttachment">scroll</property>
+                            <property name="backgroundPositionX">0%</property>
+                            <property name="backgroundPositionY">0%</property>
+                            <property name="backgroundRepeat">repeat</property>
+                            <property name="fontFamily">"Trebuchet MS"</property>
+                            <property name="fontSize">10pt</property>
+                            <property name="fontWeight">bold</property>
+                            <property name="fontStyle">normal</property>
+                            <property name="fontVariant">normal</property>
+                            <property name="color">black</property>
+                            <property name="textLineThrough">none</property>
+                            <property name="textOverline">none</property>
+                            <property name="textUnderline">none</property>
+                            <property name="borderBottomColor">black</property>
+                            <property name="borderBottomStyle">none</property>
+                            <property name="borderBottomWidth">medium</property>
+                            <property name="borderLeftColor">black</property>
+                            <property name="borderLeftStyle">none</property>
+                            <property name="borderLeftWidth">medium</property>
+                            <property name="borderRightColor">black</property>
+                            <property name="borderRightStyle">none</property>
+                            <property name="borderRightWidth">medium</property>
+                            <property name="borderTopColor">black</property>
+                            <property name="borderTopStyle">none</property>
+                            <property name="borderTopWidth">medium</property>
+                            <property name="marginTop">0pt</property>
+                            <property name="marginLeft">0pt</property>
+                            <property name="marginBottom">0pt</property>
+                            <property name="marginRight">0pt</property>
+                            <property name="paddingTop">1pt</property>
+                            <property name="paddingLeft">1pt</property>
+                            <property name="paddingBottom">1pt</property>
+                            <property name="paddingRight">1pt</property>
+                            <property name="textAlign">center</property>
+                            <property name="letterSpacing">normal</property>
+                            <property name="lineHeight">normal</property>
+                            <property name="orphans">2</property>
+                            <property name="textTransform">none</property>
+                            <property name="whiteSpace">normal</property>
+                            <property name="widows">2</property>
+                            <property name="wordSpacing">normal</property>
+                            <property name="display">block</property>
+                            <property name="pageBreakAfter">auto</property>
+                            <property name="pageBreakBefore">auto</property>
+                            <property name="pageBreakInside">auto</property>
+                            <property name="showIfBlank">false</property>
+                            <property name="canShrink">false</property>
+                            <property name="overflow">hidden</property>
+                            <text-property name="text">TRANSACTION COUNT</text-property>
+                        </label>
+                    </cell>
+                    <cell id="377">
+                        <property name="borderBottomColor">#000000</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderLeftColor">#000000</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderRightColor">#000000</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderTopColor">#000000</property>
+                        <property name="borderTopStyle">solid</property>
+                        <label id="376">
+                            <property name="backgroundAttachment">scroll</property>
+                            <property name="backgroundPositionX">0%</property>
+                            <property name="backgroundPositionY">0%</property>
+                            <property name="backgroundRepeat">repeat</property>
+                            <property name="fontFamily">"Trebuchet MS"</property>
+                            <property name="fontSize">10pt</property>
+                            <property name="fontWeight">bold</property>
+                            <property name="fontStyle">normal</property>
+                            <property name="fontVariant">normal</property>
+                            <property name="color">#000000</property>
+                            <property name="textLineThrough">none</property>
+                            <property name="textOverline">none</property>
+                            <property name="textUnderline">none</property>
+                            <property name="borderBottomColor">black</property>
+                            <property name="borderBottomStyle">none</property>
+                            <property name="borderBottomWidth">medium</property>
+                            <property name="borderLeftColor">black</property>
+                            <property name="borderLeftStyle">none</property>
+                            <property name="borderLeftWidth">medium</property>
+                            <property name="borderRightColor">black</property>
+                            <property name="borderRightStyle">none</property>
+                            <property name="borderRightWidth">medium</property>
+                            <property name="borderTopColor">black</property>
+                            <property name="borderTopStyle">none</property>
+                            <property name="borderTopWidth">medium</property>
+                            <property name="marginTop">0pt</property>
+                            <property name="marginLeft">0pt</property>
+                            <property name="marginBottom">0pt</property>
+                            <property name="marginRight">0pt</property>
+                            <property name="paddingTop">1pt</property>
+                            <property name="paddingLeft">1pt</property>
+                            <property name="paddingBottom">1pt</property>
+                            <property name="paddingRight">1pt</property>
+                            <property name="textAlign">center</property>
+                            <property name="letterSpacing">normal</property>
+                            <property name="lineHeight">normal</property>
+                            <property name="orphans">2</property>
+                            <property name="textTransform">none</property>
+                            <property name="whiteSpace">normal</property>
+                            <property name="widows">2</property>
+                            <property name="wordSpacing">normal</property>
+                            <property name="display">block</property>
+                            <property name="pageBreakAfter">auto</property>
+                            <property name="pageBreakBefore">auto</property>
+                            <property name="pageBreakInside">auto</property>
+                            <property name="showIfBlank">false</property>
+                            <property name="canShrink">false</property>
+                            <property name="overflow">hidden</property>
+                            <text-property name="text">PRICE OVERRIDE COUNT</text-property>
+                        </label>
+                    </cell>
+                    <cell id="379">
+                        <property name="borderBottomColor">#000000</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderLeftColor">#000000</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderRightColor">#000000</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderTopColor">#000000</property>
+                        <property name="borderTopStyle">solid</property>
+                        <label id="380">
+                            <property name="backgroundAttachment">scroll</property>
+                            <property name="backgroundPositionX">0%</property>
+                            <property name="backgroundPositionY">0%</property>
+                            <property name="backgroundRepeat">repeat</property>
+                            <property name="fontFamily">"Trebuchet MS"</property>
+                            <property name="fontSize">10pt</property>
+                            <property name="fontWeight">bold</property>
+                            <property name="fontStyle">normal</property>
+                            <property name="fontVariant">normal</property>
+                            <property name="color">#000000</property>
+                            <property name="textLineThrough">none</property>
+                            <property name="textOverline">none</property>
+                            <property name="textUnderline">none</property>
+                            <property name="borderBottomColor">black</property>
+                            <property name="borderBottomStyle">none</property>
+                            <property name="borderBottomWidth">medium</property>
+                            <property name="borderLeftColor">black</property>
+                            <property name="borderLeftStyle">none</property>
+                            <property name="borderLeftWidth">medium</property>
+                            <property name="borderRightColor">black</property>
+                            <property name="borderRightStyle">none</property>
+                            <property name="borderRightWidth">medium</property>
+                            <property name="borderTopColor">black</property>
+                            <property name="borderTopStyle">none</property>
+                            <property name="borderTopWidth">medium</property>
+                            <property name="marginTop">0pt</property>
+                            <property name="marginLeft">0pt</property>
+                            <property name="marginBottom">0pt</property>
+                            <property name="marginRight">0pt</property>
+                            <property name="paddingTop">1pt</property>
+                            <property name="paddingLeft">1pt</property>
+                            <property name="paddingBottom">1pt</property>
+                            <property name="paddingRight">1pt</property>
+                            <property name="textAlign">center</property>
+                            <property name="letterSpacing">normal</property>
+                            <property name="lineHeight">normal</property>
+                            <property name="orphans">2</property>
+                            <property name="textTransform">none</property>
+                            <property name="whiteSpace">normal</property>
+                            <property name="widows">2</property>
+                            <property name="wordSpacing">normal</property>
+                            <property name="display">block</property>
+                            <property name="pageBreakAfter">auto</property>
+                            <property name="pageBreakBefore">auto</property>
+                            <property name="pageBreakInside">auto</property>
+                            <property name="showIfBlank">false</property>
+                            <property name="canShrink">false</property>
+                            <property name="overflow">hidden</property>
+                            <text-property name="text">PRICE OVERRIDE TOTAL</text-property>
+                        </label>
+                    </cell>
+                </row>
+            </header>
+            <detail>
+                <row id="381">
+                    <cell id="382">
+                        <property name="borderBottomColor">#000000</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderLeftColor">#000000</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderRightColor">#000000</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderTopColor">#000000</property>
+                        <property name="borderTopStyle">solid</property>
+                        <data id="385">
+                            <property name="resultSetColumn">TRANSACTION_COUNT</property>
+                        </data>
+                    </cell>
+                    <cell id="384">
+                        <property name="borderBottomColor">#000000</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderLeftColor">#000000</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderRightColor">#000000</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderTopColor">#000000</property>
+                        <property name="borderTopStyle">solid</property>
+                        <data id="383">
+                            <property name="resultSetColumn">PRICE_OVERRIDE_COUNT</property>
+                        </data>
+                    </cell>
+                    <cell id="386">
+                        <property name="borderBottomColor">#000000</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderLeftColor">#000000</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderRightColor">#000000</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderTopColor">#000000</property>
+                        <property name="borderTopStyle">solid</property>
+                        <data id="387">
+                            <property name="resultSetColumn">PRICE_OVERRIDE_TOTAL</property>
+                        </data>
+                    </cell>
+                </row>
+            </detail>
+            <footer>
+                <row id="388">
+                    <cell id="389">
+                        <property name="borderBottomColor">#000000</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderLeftColor">#000000</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderRightColor">#000000</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderTopColor">#000000</property>
+                        <property name="borderTopStyle">solid</property>
+                    </cell>
+                    <cell id="390">
+                        <property name="borderBottomColor">#000000</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderLeftColor">#000000</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderRightColor">#000000</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderTopColor">#000000</property>
+                        <property name="borderTopStyle">solid</property>
+                    </cell>
+                    <cell id="391">
+                        <property name="borderBottomColor">#000000</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderLeftColor">#000000</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderRightColor">#000000</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderTopColor">#000000</property>
+                        <property name="borderTopStyle">solid</property>
+                    </cell>
+                </row>
+            </footer>
+        </table>
+        <label id="245">
+            <property name="fontFamily">sans-serif</property>
+            <property name="fontSize">x-large</property>
+            <property name="fontWeight">bold</property>
+            <property name="textAlign">center</property>
+            <text-property name="text">PRICE OVERRIDE DETAIL REPORT</text-property>
+        </label>
+        <table id="4">
+            <property name="borderBottomColor">#000000</property>
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">thin</property>
+            <property name="borderLeftColor">#000000</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">thin</property>
+            <property name="borderRightColor">#000000</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">thin</property>
+            <property name="borderTopColor">#000000</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">thin</property>
+            <property name="width">9.375in</property>
+            <property name="dataSet">PriceOverride</property>
+            <list-property name="boundDataColumns">
+                <structure>
+                    <property name="name">TXNDATETIME</property>
+                    <text-property name="displayName">TXNDATETIME</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["TXNDATETIME"]</expression>
+                    <property name="dataType">date-time</property>
+                </structure>
+                <structure>
+                    <property name="name">LOGICALTERMINALID</property>
+                    <text-property name="displayName">LOGICALTERMINALID</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["LOGICALTERMINALID"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">SIGNONID</property>
+                    <text-property name="displayName">SIGNONID</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["SIGNONID"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">TRANSACTIONNUMBER</property>
+                    <text-property name="displayName">TRANSACTIONNUMBER</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["TRANSACTIONNUMBER"]</expression>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="name">ITEMKEY</property>
+                    <text-property name="displayName">ITEMKEY</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["ITEMKEY"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">ITEMDESCRIPTION</property>
+                    <text-property name="displayName">ITEMDESCRIPTION</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["ITEMDESCRIPTION"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">REGULARPRICE</property>
+                    <text-property name="displayName">REGULARPRICE</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["REGULARPRICE"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">NEWPRICE</property>
+                    <text-property name="displayName">NEWPRICE</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["NEWPRICE"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">OVERRIDEAMOUNT</property>
+                    <text-property name="displayName">OVERRIDEAMOUNT</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["OVERRIDEAMOUNT"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">SUPPLEMENTALDATA</property>
+                    <text-property name="displayName">SUPPLEMENTALDATA</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["SUPPLEMENTALDATA"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+            </list-property>
+            <property name="pageBreakInterval">50</property>
+            <column id="20">
+                <property name="width">1.1145833333333333in</property>
+            </column>
+            <column id="21">
+                <property name="width">1.5520833333333333in</property>
+            </column>
+            <column id="22">
+                <property name="width">0.8333333333333334in</property>
+            </column>
+            <column id="23">
+                <property name="width">1.7083333333333333in</property>
+            </column>
+            <column id="282">
+                <property name="width">1.125in</property>
+            </column>
+            <column id="292">
+                <property name="width">1.4375in</property>
+            </column>
+            <column id="287">
+                <property name="width">1.625in</property>
+            </column>
+            <column id="310">
+                <property name="width">1.625in</property>
+            </column>
+            <header>
+                <row id="5">
+                    <property name="backgroundColor">#C0C0C0</property>
+                    <property name="fontFamily">"Trebuchet MS"</property>
+                    <property name="fontWeight">bold</property>
+                    <property name="color">#0000FF</property>
+                    <cell id="6">
+                        <property name="borderBottomColor">#000000</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderLeftColor">#000000</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderRightColor">#000000</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderTopColor">#000000</property>
+                        <property name="borderTopStyle">solid</property>
+                        <text id="328">
+                            <property name="contentType">auto</property>
+                            <text-property name="content"><![CDATA[DATE TIME]]></text-property>
+                        </text>
+                    </cell>
+                    <cell id="7">
+                        <property name="borderBottomColor">#000000</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderLeftColor">#000000</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderRightColor">#000000</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderTopColor">#000000</property>
+                        <property name="borderTopStyle">solid</property>
+                        <text id="329">
+                            <property name="contentType">auto</property>
+                            <text-property name="content"><![CDATA[REGISTER]]></text-property>
+                        </text>
+                    </cell>
+                    <cell id="8">
+                        <property name="borderBottomColor">#000000</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderLeftColor">#000000</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderRightColor">#000000</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderTopColor">#000000</property>
+                        <property name="borderTopStyle">solid</property>
+                        <text id="330">
+                            <property name="contentType">auto</property>
+                            <text-property name="content"><![CDATA[TEAM MEMBER]]></text-property>
+                        </text>
+                    </cell>
+                    <cell id="9">
+                        <property name="borderBottomColor">#000000</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderLeftColor">#000000</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderRightColor">#000000</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderTopColor">#000000</property>
+                        <property name="borderTopStyle">solid</property>
+                        <text id="331">
+                            <property name="contentType">auto</property>
+                            <text-property name="content"><![CDATA[TRAN #]]></text-property>
+                        </text>
+                    </cell>
+                    <cell id="278">
+                        <property name="borderBottomColor">#000000</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderLeftColor">#000000</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderRightColor">#000000</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderTopColor">#000000</property>
+                        <property name="borderTopStyle">solid</property>
+                        <text id="332">
+                            <property name="contentType">auto</property>
+                            <text-property name="content"><![CDATA[ITEM]]></text-property>
+                        </text>
+                    </cell>
+                    <cell id="288">
+                        <property name="borderBottomColor">#000000</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderLeftColor">#000000</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderRightColor">#000000</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderTopColor">#000000</property>
+                        <property name="borderTopStyle">solid</property>
+                        <text id="334">
+                            <property name="contentType">auto</property>
+                            <text-property name="content"><![CDATA[REGULAR PRICE]]></text-property>
+                        </text>
+                    </cell>
+                    <cell id="283">
+                        <property name="borderBottomColor">#000000</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderLeftColor">#000000</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderRightColor">#000000</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderTopColor">#000000</property>
+                        <property name="borderTopStyle">solid</property>
+                        <text id="335">
+                            <property name="contentType">auto</property>
+                            <text-property name="content"><![CDATA[NEW PRICE]]></text-property>
+                        </text>
+                    </cell>
+                    <cell id="307">
+                        <property name="borderBottomColor">#000000</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderLeftColor">#000000</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderRightColor">#000000</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderTopColor">#000000</property>
+                        <property name="borderTopStyle">solid</property>
+                        <text id="336">
+                            <property name="contentType">auto</property>
+                            <text-property name="content"><![CDATA[OVERRIDE AMT]]></text-property>
+                        </text>
+                    </cell>
+                </row>
+            </header>
+            <detail>
+                <row id="10">
+                    <property name="color">#0000A0</property>
+                    <property name="borderBottomColor">#000000</property>
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderLeftColor">#000000</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderRightColor">#000000</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderTopColor">#000000</property>
+                    <property name="borderTopStyle">solid</property>
+                    <cell id="11">
+                        <property name="borderBottomColor">#000000</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderLeftColor">#000000</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderRightColor">#000000</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderTopColor">#000000</property>
+                        <property name="borderTopStyle">solid</property>
+                        <data id="268">
+                            <property name="resultSetColumn">TXNDATETIME</property>
+                        </data>
+                    </cell>
+                    <cell id="12">
+                        <property name="borderBottomColor">#000000</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderLeftColor">#000000</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderRightColor">#000000</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderTopColor">#000000</property>
+                        <property name="borderTopStyle">solid</property>
+                        <data id="269">
+                            <property name="resultSetColumn">LOGICALTERMINALID</property>
+                        </data>
+                    </cell>
+                    <cell id="13">
+                        <property name="borderBottomColor">#000000</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderLeftColor">#000000</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderRightColor">#000000</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderTopColor">#000000</property>
+                        <property name="borderTopStyle">solid</property>
+                        <data id="270">
+                            <property name="resultSetColumn">SIGNONID</property>
+                        </data>
+                    </cell>
+                    <cell id="14">
+                        <property name="borderBottomColor">#000000</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderLeftColor">#000000</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderRightColor">#000000</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderTopColor">#000000</property>
+                        <property name="borderTopStyle">solid</property>
+                        <data id="272">
+                            <property name="resultSetColumn">TRANSACTIONNUMBER</property>
+                        </data>
+                    </cell>
+                    <cell id="280">
+                        <property name="borderBottomColor">#000000</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderLeftColor">#000000</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderRightColor">#000000</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderTopColor">#000000</property>
+                        <property name="borderTopStyle">solid</property>
+                        <data id="294">
+                            <property name="resultSetColumn">ITEMKEY</property>
+                        </data>
+                    </cell>
+                    <cell id="290">
+                        <property name="borderBottomColor">#000000</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderLeftColor">#000000</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderRightColor">#000000</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderTopColor">#000000</property>
+                        <property name="borderTopStyle">solid</property>
+                        <data id="298">
+                            <property name="resultSetColumn">REGULARPRICE</property>
+                        </data>
+                    </cell>
+                    <cell id="285">
+                        <property name="borderBottomColor">#000000</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderLeftColor">#000000</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderRightColor">#000000</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderTopColor">#000000</property>
+                        <property name="borderTopStyle">solid</property>
+                        <data id="312">
+                            <property name="resultSetColumn">NEWPRICE</property>
+                        </data>
+                    </cell>
+                    <cell id="308">
+                        <property name="borderBottomColor">#000000</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderLeftColor">#000000</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderRightColor">#000000</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderTopColor">#000000</property>
+                        <property name="borderTopStyle">solid</property>
+                        <data id="314">
+                            <property name="resultSetColumn">OVERRIDEAMOUNT</property>
+                        </data>
+                    </cell>
+                </row>
+                <row id="338">
+                    <property name="color">#0000A0</property>
+                    <property name="borderBottomColor">#000000</property>
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderLeftColor">#000000</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderRightColor">#000000</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderTopColor">#000000</property>
+                    <property name="borderTopStyle">solid</property>
+                    <cell id="339">
+                        <property name="borderBottomColor">#000000</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderLeftColor">#000000</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderRightColor">#000000</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderTopColor">#000000</property>
+                        <property name="borderTopStyle">solid</property>
+                    </cell>
+                    <cell id="340">
+                        <property name="borderBottomColor">#000000</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderLeftColor">#000000</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderRightColor">#000000</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderTopColor">#000000</property>
+                        <property name="borderTopStyle">solid</property>
+                    </cell>
+                    <cell id="341">
+                        <property name="borderBottomColor">#000000</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderLeftColor">#000000</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderRightColor">#000000</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderTopColor">#000000</property>
+                        <property name="borderTopStyle">solid</property>
+                    </cell>
+                    <cell id="342">
+                        <property name="borderBottomColor">#000000</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderLeftColor">#000000</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderRightColor">#000000</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderTopColor">#000000</property>
+                        <property name="borderTopStyle">solid</property>
+                    </cell>
+                    <cell id="343">
+                        <property name="borderBottomColor">#000000</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderLeftColor">#000000</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderRightColor">#000000</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderTopColor">#000000</property>
+                        <property name="borderTopStyle">solid</property>
+                        <text id="333">
+                            <property name="backgroundAttachment">scroll</property>
+                            <property name="backgroundPositionX">0%</property>
+                            <property name="backgroundPositionY">0%</property>
+                            <property name="backgroundRepeat">repeat</property>
+                            <property name="fontFamily">"Trebuchet MS"</property>
+                            <property name="fontSize">10pt</property>
+                            <property name="fontWeight">bold</property>
+                            <property name="fontStyle">normal</property>
+                            <property name="fontVariant">normal</property>
+                            <property name="color">#0000FF</property>
+                            <property name="textLineThrough">none</property>
+                            <property name="textOverline">none</property>
+                            <property name="textUnderline">none</property>
+                            <property name="borderBottomColor">black</property>
+                            <property name="borderBottomStyle">none</property>
+                            <property name="borderBottomWidth">medium</property>
+                            <property name="borderLeftColor">black</property>
+                            <property name="borderLeftStyle">none</property>
+                            <property name="borderLeftWidth">medium</property>
+                            <property name="borderRightColor">black</property>
+                            <property name="borderRightStyle">none</property>
+                            <property name="borderRightWidth">medium</property>
+                            <property name="borderTopColor">black</property>
+                            <property name="borderTopStyle">none</property>
+                            <property name="borderTopWidth">medium</property>
+                            <property name="marginTop">0pt</property>
+                            <property name="marginLeft">0pt</property>
+                            <property name="marginBottom">0pt</property>
+                            <property name="marginRight">0pt</property>
+                            <property name="paddingTop">1pt</property>
+                            <property name="paddingLeft">1pt</property>
+                            <property name="paddingBottom">1pt</property>
+                            <property name="paddingRight">1pt</property>
+                            <property name="textAlign">center</property>
+                            <property name="textIndent">0em</property>
+                            <property name="letterSpacing">normal</property>
+                            <property name="lineHeight">normal</property>
+                            <property name="orphans">2</property>
+                            <property name="textTransform">none</property>
+                            <property name="whiteSpace">normal</property>
+                            <property name="widows">2</property>
+                            <property name="wordSpacing">normal</property>
+                            <property name="display">block</property>
+                            <property name="pageBreakAfter">auto</property>
+                            <property name="pageBreakBefore">auto</property>
+                            <property name="pageBreakInside">auto</property>
+                            <property name="showIfBlank">false</property>
+                            <property name="canShrink">false</property>
+                            <property name="overflow">hidden</property>
+                            <property name="contentType">auto</property>
+                            <text-property name="content"><![CDATA[DESCRIPTION]]></text-property>
+                        </text>
+                    </cell>
+                    <cell id="344">
+                        <property name="borderBottomColor">#000000</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderLeftColor">#000000</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderRightColor">#000000</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderTopColor">#000000</property>
+                        <property name="borderTopStyle">solid</property>
+                        <data id="296">
+                            <property name="backgroundAttachment">scroll</property>
+                            <property name="backgroundPositionX">0%</property>
+                            <property name="backgroundPositionY">0%</property>
+                            <property name="backgroundRepeat">repeat</property>
+                            <property name="fontFamily">sans-serif</property>
+                            <property name="fontSize">10pt</property>
+                            <property name="fontWeight">normal</property>
+                            <property name="fontStyle">normal</property>
+                            <property name="fontVariant">normal</property>
+                            <property name="color">#0000A0</property>
+                            <property name="textLineThrough">none</property>
+                            <property name="textOverline">none</property>
+                            <property name="textUnderline">none</property>
+                            <property name="borderBottomColor">black</property>
+                            <property name="borderBottomStyle">none</property>
+                            <property name="borderBottomWidth">medium</property>
+                            <property name="borderLeftColor">black</property>
+                            <property name="borderLeftStyle">none</property>
+                            <property name="borderLeftWidth">medium</property>
+                            <property name="borderRightColor">black</property>
+                            <property name="borderRightStyle">none</property>
+                            <property name="borderRightWidth">medium</property>
+                            <property name="borderTopColor">black</property>
+                            <property name="borderTopStyle">none</property>
+                            <property name="borderTopWidth">medium</property>
+                            <property name="marginTop">0pt</property>
+                            <property name="marginLeft">0pt</property>
+                            <property name="marginBottom">0pt</property>
+                            <property name="marginRight">0pt</property>
+                            <property name="paddingTop">1pt</property>
+                            <property name="paddingLeft">1pt</property>
+                            <property name="paddingBottom">1pt</property>
+                            <property name="paddingRight">1pt</property>
+                            <property name="letterSpacing">normal</property>
+                            <property name="lineHeight">normal</property>
+                            <property name="orphans">2</property>
+                            <property name="textTransform">none</property>
+                            <property name="whiteSpace">normal</property>
+                            <property name="widows">2</property>
+                            <property name="wordSpacing">normal</property>
+                            <property name="display">block</property>
+                            <property name="pageBreakAfter">auto</property>
+                            <property name="pageBreakBefore">auto</property>
+                            <property name="pageBreakInside">auto</property>
+                            <property name="showIfBlank">false</property>
+                            <property name="canShrink">false</property>
+                            <property name="overflow">hidden</property>
+                            <property name="resultSetColumn">ITEMDESCRIPTION</property>
+                        </data>
+                    </cell>
+                    <cell id="345">
+                        <property name="borderBottomColor">#000000</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderLeftColor">#000000</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderRightColor">#000000</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderTopColor">#000000</property>
+                        <property name="borderTopStyle">solid</property>
+                        <text id="337">
+                            <property name="backgroundAttachment">scroll</property>
+                            <property name="backgroundPositionX">0%</property>
+                            <property name="backgroundPositionY">0%</property>
+                            <property name="backgroundRepeat">repeat</property>
+                            <property name="fontFamily">"Trebuchet MS"</property>
+                            <property name="fontSize">10pt</property>
+                            <property name="fontWeight">bold</property>
+                            <property name="fontStyle">normal</property>
+                            <property name="fontVariant">normal</property>
+                            <property name="color">#0000FF</property>
+                            <property name="textLineThrough">none</property>
+                            <property name="textOverline">none</property>
+                            <property name="textUnderline">none</property>
+                            <property name="borderBottomColor">black</property>
+                            <property name="borderBottomStyle">none</property>
+                            <property name="borderBottomWidth">medium</property>
+                            <property name="borderLeftColor">black</property>
+                            <property name="borderLeftStyle">none</property>
+                            <property name="borderLeftWidth">medium</property>
+                            <property name="borderRightColor">black</property>
+                            <property name="borderRightStyle">none</property>
+                            <property name="borderRightWidth">medium</property>
+                            <property name="borderTopColor">black</property>
+                            <property name="borderTopStyle">none</property>
+                            <property name="borderTopWidth">medium</property>
+                            <property name="marginTop">0pt</property>
+                            <property name="marginLeft">0pt</property>
+                            <property name="marginBottom">0pt</property>
+                            <property name="marginRight">0pt</property>
+                            <property name="paddingTop">1pt</property>
+                            <property name="paddingLeft">1pt</property>
+                            <property name="paddingBottom">1pt</property>
+                            <property name="paddingRight">1pt</property>
+                            <property name="textAlign">center</property>
+                            <property name="textIndent">0em</property>
+                            <property name="letterSpacing">normal</property>
+                            <property name="lineHeight">normal</property>
+                            <property name="orphans">2</property>
+                            <property name="textTransform">none</property>
+                            <property name="whiteSpace">normal</property>
+                            <property name="widows">2</property>
+                            <property name="wordSpacing">normal</property>
+                            <property name="display">block</property>
+                            <property name="pageBreakAfter">auto</property>
+                            <property name="pageBreakBefore">auto</property>
+                            <property name="pageBreakInside">auto</property>
+                            <property name="showIfBlank">false</property>
+                            <property name="canShrink">false</property>
+                            <property name="overflow">hidden</property>
+                            <property name="contentType">auto</property>
+                            <text-property name="content"><![CDATA[REASON
+]]></text-property>
+                        </text>
+                    </cell>
+                    <cell id="346">
+                        <property name="borderBottomColor">#000000</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderLeftColor">#000000</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderRightColor">#000000</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderTopColor">#000000</property>
+                        <property name="borderTopStyle">solid</property>
+                        <data id="316">
+                            <property name="resultSetColumn">SUPPLEMENTALDATA</property>
+                        </data>
+                    </cell>
+                </row>
+            </detail>
+            <footer>
+                <row id="15">
+                    <cell id="16">
+                        <property name="borderBottomColor">#000000</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderLeftColor">#000000</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderRightColor">#000000</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderTopColor">#000000</property>
+                        <property name="borderTopStyle">solid</property>
+                    </cell>
+                    <cell id="17">
+                        <property name="borderBottomColor">#000000</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderLeftColor">#000000</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderRightColor">#000000</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderTopColor">#000000</property>
+                        <property name="borderTopStyle">solid</property>
+                    </cell>
+                    <cell id="18">
+                        <property name="borderBottomColor">#000000</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderLeftColor">#000000</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderRightColor">#000000</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderTopColor">#000000</property>
+                        <property name="borderTopStyle">solid</property>
+                    </cell>
+                    <cell id="19">
+                        <property name="borderBottomColor">#000000</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderLeftColor">#000000</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderRightColor">#000000</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderTopColor">#000000</property>
+                        <property name="borderTopStyle">solid</property>
+                    </cell>
+                    <cell id="281">
+                        <property name="borderBottomColor">#000000</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderLeftColor">#000000</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderRightColor">#000000</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderTopColor">#000000</property>
+                        <property name="borderTopStyle">solid</property>
+                    </cell>
+                    <cell id="291">
+                        <property name="borderBottomColor">#000000</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderLeftColor">#000000</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderRightColor">#000000</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderTopColor">#000000</property>
+                        <property name="borderTopStyle">solid</property>
+                    </cell>
+                    <cell id="286">
+                        <property name="borderBottomColor">#000000</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderLeftColor">#000000</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderRightColor">#000000</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderTopColor">#000000</property>
+                        <property name="borderTopStyle">solid</property>
+                    </cell>
+                    <cell id="309">
+                        <property name="borderBottomColor">#000000</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderLeftColor">#000000</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderRightColor">#000000</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderTopColor">#000000</property>
+                        <property name="borderTopStyle">solid</property>
+                    </cell>
+                </row>
+            </footer>
+        </table>
+    </body>
+    <list-property name="images">
+        <structure>
+            <property name="name">mm.jpg</property>
+            <property name="data">
+                /9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwg
+                JC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIy
+                MjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCAA4AKwDASIAAhEBAxEB/8QA
+                HwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIh
+                MUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVW
+                V1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXG
+                x8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQF
+                BgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAV
+                YnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOE
+                hYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq
+                8vP09fb3+Pn6/9oADAMBAAIRAxEAPwDur343eCdPvrizuL26WaCRopALVyAynB7e1JafHHwNeXkNtHqF
+                wrzOsal7ZlUEnAyew96+YPFqMfF+tuFO0X0oJxwDvNYoODkUAff/AGzXnV58cPA1lez2st/cGSCRo2KW
+                zsuQcHB7jjrXLw/Fcf8ACiG1Izj+2Y1/s7k/MZcYD/8AfHzfUGvm5g3Vs885PegD65s/jf4Iv72C0gvb
+                ozTyLGgNq4yxOB2qXVPjN4P0bU7jTtQnvYLq3cpJG1o/BH4dPevlfwr/AMjbpH/X5F/6EK+lvjD8Mk8X
+                6WdW0yIDWrVOAB/x8IP4T7+h/CgCb/hfPgP/AJ/rv/wEf/Cu18OeJdK8V6Qmp6Pc+fbMxU5BVlYdQQeQ
+                a+GXR4pGjkUq6kqysMEEdjXc/C74gT+BfEStKzPpV0Ql3EOw7OB6j+VAH19d3cFjaTXd1KsUEKF5HY4C
+                qOprzo/HnwGCR9uuj/26P/hXnPxu+J0WsbfDehXQksAFkup424lJ5CA+g6n3+lYvwX+HR8V63/a+oxZ0
+                ixcHaw4nkHIX6DqfyoA9x1b4ueFNDFn/AGjNeQNdwLcRK1q+dh6EjHH0rN/4Xz4D/wCf67/8BH/wryv9
+                okBfHNkAAALJQAO3zGvIKAPrP/hfPgP/AJ/rv/wEf/Cj/hfPgP8A5/rv/wABH/wri7L4G+ELmxt538WO
+                jyRK7L5kXBIBI61N/wAKH8Hf9Dc//fyL/GgD1Pwl4/0Dxs90uizzSm2CmTzIWTGc469ehrE1L40+C9J1
+                O50+7vLlbi2kaKQC2cgMDg81P8Ofh3pfgdb2fTNTlvkvAoLNtIG3PQr9a+XfH3/JQNf/AOv6X/0I0AfS
+                P/C+fAf/AD/Xf/gI/wDhR/wvnwH/AM/13/4CP/hXzf4F0XTvEPi6z0zVrv7LZzbt824LtwpI5PHUV6b4
+                o+FXgPSPDN/f2nioG5giLxIZkfew6Lgc89KAPRB8efAZIH2+6Ge5tX/wrutF13S/EWnrfaTexXdsxxvj
+                OcH0I7GvhGvZP2c7y+Txnf2cTMbKSzMky5+UMGUKfryR/wDqoA+m6KKKAPmXwt4Yj8X698RdIYL5zl3t
+                2b+GVZWKn+h9ia8engltriSCZGjliYo6MMFWBwQa+lPhNouqad8R/F91e2FxbwTyMYpJEIV/3pPB78Vx
+                /wAaPhvqa+Mjq2iadPdW2or5kqwIW8uUcNnHrwfrmgDx62juLuWKyg3u00ihIlJ+ZzwOPXmu3+LHh+Lw
+                trejaPGBut9IhErD+KQvIWP5k10/wY+HWqN44j1PWdMuLW209fOj8+Mrvl6KBn06/hVr47+Gtb1fx/Dc
+                6dpV3dQiwjQyRRFhkO/GfxFAHk/hX/kbdI/6/Iv/AEIV90V8aeG/Bfie38T6XNLoN+kaXUbMxhIAAYZN
+                fZdAHz78ePhzBBG/i/TESIFgt9EONxJwHHvnr+deBV9ifGGwu9T+Guo2tjbSXFw7R7Y4lyxw4zxXy3/w
+                gvir/oX9R/78NQA3wf4VvfGPiS20iyGDIcyy44iQdWNfZ+g6HZeHNEtdJ0+IR21um1fVj3Y+5PNeF/AL
+                w7rWj+LNQm1LTLq1iez2q80ZUE7hxzX0NQB8wftFf8j1Z/8AXkv/AKEa8fr3T48+G9a1jxnaz6dpd1dR
+                LaBS8UZYA5PHFeV/8IL4q/6F/Uf+/DUAdzbfs++Kbq1huEu9PCSorrlznBGfSpf+GdvFf/P5p3/fw/4V
+                kx3nxcijSON/ECoihVUK2ABwB0p39ofF7/nr4h/75b/CgD6K+HHhq78JeCbPRr54nuIWcsYjlfmYn+tf
+                Jvj7/koGv/8AX9L/AOhGvoD4KXHjGebV/wDhKn1FlCx+R9sBAz82cZ/CvG/G3g3xLd+ONbuLfQ76SGS8
+                kZHWEkMCxwRQBw1vbTXcwht4nllIJCIMk4GTx9Aair0v4aeEPEVj8R9DubvRb2G3juMvJJCQqjaetbXx
+                a+El9p2vHVPDlhLcWF6xZ4IE3GCTqRgfwnqPxFAHmfhXR7PXvElnpl/qSadBcPs+0OuQD2Htnpk8V9fe
+                CvAejeBdNa20yNnmlwZ7mTl5CP5D2r5I/wCEF8V/9C/qP/fhq+k/hF4j1+90kaL4l0y9gu7NB5N1NGQJ
+                oxxgk/xD9RQB6ZRRRQAUUUUAFFFFABRRRQAUUUUAFMmkEUTOSvA43NgE9hmn1wHxL1eK0m0HTphK0Vxd
+                +e8UQJefyhuWJfUs20UAdVBrkKw2S6mq6de3bmOO0lkDMzDPC4+9wM5q1f6nY6XCJb+7htoySA0rhQSB
+                n+QryrRrHUdQ+MMLa/Ej6ha25v8AK5KQRuu1Yl/3Wzk9zW14m0iTxf8AEbT7K4gd9J0KH7bMrJ8s87fc
+                QHocAZNAHWWPi3Q9QtLO5gv4/LvZjBbBwVaVx1AB5rQj1Kxllu4kuome0x9oAb/VZGfm9OOa8N0fQPFS
+                azompXFhMb+4a7FsJE+SwDH/AFr++CSB34FS3eja3YeFb/w7DBdWjalqjR3N7PjzL0yPhVTnkbAWZj0A
+                xQB7bb6lZXemJqUFzG9k8fmrOD8pTGd2fSuPl+IBvfDWt6lpunzxC0ZIbOa4XC3DyYCMq9cZYVc166sN
+                FstK8O3MkNppl5BLbSzysERUWMDaD0DNnj6GuDgsj4pvND0e9uri/wBMivnS2nVjFHe20MYJZkGASHZV
+                3jrjigD0tPEulaZNZaRqmtWp1Z0UMhIBZzxkgcLk9M1NeeKdJsryaze4L3cUkcRgiUs5eQZVQO5wM+wr
+                yPTrYXGk6j4W0Lw7PHrc2ql7q5uIGWGKJJgysZDyRhVAUc1jx2mt6ZYeKPEzQahqQlv5LaO5jAWSOPIW
+                aYDsSo2Lj7vNAHudp4t0K+1k6Ta6jFLejd8iAkEr94BsbSRkZANbVeceAZNK1LUI7uC5tZpLe22WtnYZ
+                a3sIjjILY+aVscnrxXo9ABRRRQAUUUUAFFFFABRRRQAUUUUAFMeGKR0d40ZkOUZlBKn29KKKAE+zw/aT
+                c+UnnlNhk2/NtznGfTNSUUUAUdXtru70yWKwuvst3w0UuMgMDnBHcHofrWFaaXrOr+IbPVdegt7WHT42
+                Fvawy+aHlYYaUnAxgcAdsmiigDpbm0tryLyrq3injznZKgYZ+hpRbQK8TrDGGiUrGQo+QHGQPQcD8qKK
+                AJaaEUKVCgKeoxxRRQAyC2gtlK28EcSk5IjQKCfwqWiigAooooA//9k=
+</property>
+        </structure>
+    </list-property>
+</report>
