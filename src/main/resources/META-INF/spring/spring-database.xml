@@ -17,5 +17,9 @@
 	<!-- other DAOs -->	
 	<bean id="filesDao" 
 		class="com.riviere.moomoney.dao.FilesDaoImpl" parent="abstractJdbcDao" />		
+		
+		
+	<bean id="tagDao" 
+		class="com.riviere.moomoney.dao.TagDaoImpl" parent="abstractJdbcDao" />		
 	
 </beans>

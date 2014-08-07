@@ -28,7 +28,7 @@
                   <th>Description</th>
                   <th>Debit</th>
                   <th>Credit</th>
-                  <th>Tag</th>
+                  <th>Tags</th>
                 </tr>
               </thead>
               <tbody>
@@ -37,7 +37,7 @@
                   <td>Lorem</td>
                   <td>ipsum</td>
                   <td>dolor</td>
-                  <td>sit</td>
+                  <td><input type="text" class="eetag" name="tag"></td>
                 </tr>
                 <tr>
                   <td>1,002</td>
@@ -153,10 +153,52 @@
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    <script src="resources/css/bootstrap-3.1.1-dist/js/bootstrap.min.js"></script>
-    <script src="resources/css/bootstrap-3.1.1-dist/js/docs.min.js"></script>
-    -->
+    <!-- Placed at the end of the document so the pages load faster   
+     -->
+	<!-- Latest compiled and minified CSS -->
+
+<link rel="stylesheet" href="resources/css/bootstrap-tagsinput/bootstrap-tagsinput.css">
+<link rel="stylesheet" href="resources/css/bootstrap-tagsinput/app.css">
+<!-- Optional theme -->
+
+
+    <script src="resources/js/bootstrap.min.js"></script>
+	<script src="resources/js/bootstrap-tagsinput/typeahead.bundle.js"></script>
+    <script src="resources/js/bootstrap-tagsinput/bootstrap-tagsinput.min.js"></script>
+	<script>
+		jQuery(document).ready(function(){
+		$.get( 'tags.htm', {}, function(tdata){
+			var eetags = new Bloodhound({
+  datumTokenizer: Bloodhound.tokenizers.obj.whitespace('itemDescription'),
+  queryTokenizer: Bloodhound.tokenizers.whitespace,
+  local: tdata
+});
+eetags.initialize();
+
+var elt = $('input.eetag');
+elt.tagsinput({
+  maxTags: 1,
+  itemValue: 'itemCode',
+  itemText: 'itemDescription',
+  typeaheadjs: {
+    name: 'itemCode',
+    displayKey: 'itemDescription',
+    source: eetags.ttAdapter()
+  },
+  tagClass: function(item) {
+    switch (item.buttonType) {
+      case 'primary'   : return 'label label-primary';
+      case 'important'  : return 'label label-danger label-important';
+      case 'success': return 'label label-success';
+      case 'default'   : return 'label label-default';
+      case 'warning'     : return 'label label-warning';
+    }
+  },
+});
+//elt.tagsinput('add', { "value": 1 , "text": "Amsterdam"   , "continent": "Europe"    });
+alert(eetags.ttAdapter());
+});
+		});
+	</script>
   </body>
 </html>
