@@ -30,10 +30,26 @@ CREATE TABLE file (
   CONSTRAINT pk_file PRIMARY KEY (file_id)
 );
 
+CREATE TABLE IF NOT EXISTS `etags` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `item_code` varchar(100) NOT NULL,
+  `item_description` varchar(500) NOT NULL,
+  `btn_type` enum('primary','important','success','default','warning') NOT NULL DEFAULT 'default',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+
+
+
+
   
 INSERT INTO users(username,password,firstname,lastname,project,enabled) VALUES ('richard','d8d7b0944cf2b88336c9afe487329939','richard','riviere','all',TRUE);
 INSERT INTO users(username,password,firstname,lastname,project,enabled) VALUES ('ariane','6ae199a93c381bf6d5de27491139d3f9','ariane','riviere','all',TRUE); 
 INSERT INTO user_roles (username,project,role) VALUES ('richard','all','ROLE_LEVEL1');
 INSERT INTO user_roles (username,project,role) VALUES ('ariane','all','ROLE_LEVEL1');
+INSERT INTO `etags` (`id`, `item_code`, `item_description`, `btn_type`) VALUES
+(1, 'Mel', 'Melbourne', 'default'),
+(2, 'Syd', 'Sydney', 'default');
+
 
 commit;
