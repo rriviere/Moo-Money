@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <title>jQuery File Upload Example</title>
-<script src="resources/js/jquery-1.10.1.min.js"></script>
+<script src="resources/js/jquery-1.7.1.min.js"></script>
 
 <script src="resources/js/jquery.ui.widget.js"></script>
 <script src="resources/js/jquery.iframe-transport.js"></script>
@@ -11,7 +11,7 @@
 
 <!-- bootstrap just to have good looking page -->
 <link href="resources/css/bootstrap-2.3.1-css-only/css/bootstrap.css" type="text/css" rel="stylesheet" />
-<script src="resources/css/bootstrap-3.1.1-dist/js/bootstrap.min.js"></script>
+<script src="resources/js/bootstrap.min.js"></script>
 
 <!-- we code these -->
 <link href="resources/css/custom-moo-money.css" type="text/css" rel="stylesheet" />

@@ -1,54 +1,22 @@
-  <%@ include file="/WEB-INF/pages/common/headerDashboard.jspf" %>
+<!-- ====================================================================== -->
+<!-- header files									 		 		-->
+<!-- ====================================================================== -->
+  <%@ include file="/WEB-INF/pages/common/header.jspf" %>
+<!-- end header files -->  
   <body>
-
-    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#">Project name</a>
-        </div>
-        <div class="navbar-collapse collapse">
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="#">Dashboard</a></li>
-            <li><a href="#">Settings</a></li>
-            <li><a href="#">Profile</a></li>
-            <li><a href="<%=request.getContextPath()%>/j_spring_security_logout"><spring:message code="button.logout"/></a></li>
-            
-          </ul>
-          <form class="navbar-form navbar-right">
-            <input type="text" class="form-control" placeholder="Search...">
-          </form>
-        </div>
-      </div>
-    </div>
-
+	<!-- ====================================================================== -->
+	<!-- horizontal navigation									 		 		-->
+	<!-- ====================================================================== -->
+    <%@ include file="/WEB-INF/pages/common/navHorizontal.jspf" %>
+    <!-- end horizontal navigation -->
+    
     <div class="container-fluid">
       <div class="row">
-        <div class="col-sm-3 col-md-2 sidebar">
-          <ul class="nav nav-sidebar">
-            <li class="active"><a href="#">Overview</a></li>
-            <li><a href="expenses.htm">Expenses</a></li>
-            <li><a href="#">Analytics</a></li>
-            <li><a href="#">Reports</a></li>
-          </ul>
-          <ul class="nav nav-sidebar">
-            <li><a href="">Nav item</a></li>
-            <li><a href="">Nav item again</a></li>
-            <li><a href="">One more nav</a></li>
-            <li><a href="">Another nav item</a></li>
-            <li><a href="">More navigation</a></li>
-          </ul>
-          <ul class="nav nav-sidebar">
-            <li><a href="">Nav item again</a></li>
-            <li><a href="">One more nav</a></li>
-            <li><a href="">Another nav item</a></li>
-          </ul>
-        </div>
+		<!-- ====================================================================== -->
+		<!-- vertical navigation									 		 		-->
+		<!-- ====================================================================== -->
+        <%@ include file="/WEB-INF/pages/common/navVertical.jspf" %>
+        <!-- end vertical navigation -->  
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
           <h1 class="page-header">Expenses</h1>
 
@@ -56,11 +24,11 @@
             <table class="table table-striped">
               <thead>
                 <tr>
-                  <th>#</th>
-                  <th>Header</th>
-                  <th>Header</th>
-                  <th>Header</th>
-                  <th>Header</th>
+                  <th>Date</th>
+                  <th>Description</th>
+                  <th>Debit</th>
+                  <th>Credit</th>
+                  <th>Tag</th>
                 </tr>
               </thead>
               <tbody>
@@ -185,9 +153,10 @@
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
+    <!-- Placed at the end of the document so the pages load faster 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="resources/css/bootstrap-3.1.1-dist/js/bootstrap.min.js"></script>
     <script src="resources/css/bootstrap-3.1.1-dist/js/docs.min.js"></script>
+    -->
   </body>
 </html>

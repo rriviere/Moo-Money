@@ -1,7 +1,7 @@
-<!-- ====================================================================== -->
+\<!-- ====================================================================== -->
 <!-- header files									 		 		-->
 <!-- ====================================================================== -->
-  <%@ include file="/WEB-INF/pages/common/headerDashboard.jspf" %>
+  <%@ include file="/WEB-INF/pages/common/header.jspf" %>
 <!-- end header files -->  
   <body>
 	<!-- ====================================================================== -->
@@ -175,11 +175,8 @@
       </div>
     </div>
 
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    <script src="resources/css/bootstrap-3.1.1-dist/js/bootstrap.min.js"></script>
-    <script src="resources/css/bootstrap-3.1.1-dist/js/docs.min.js"></script>
+    <!-- Extra JavaScript 
+    <script src="resources/js/docs.min.js"></script>
+    -->
   </body>
 </html>

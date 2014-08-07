@@ -1,4 +1,4 @@
-  <%@ include file="/WEB-INF/pages/common/headerDashboard.jspf" %>
+  <%@ include file="/WEB-INF/pages/common/header.jspf" %>
   <body>
 
     <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -45,9 +45,10 @@
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
+    <!-- Placed at the end of the document so the pages load faster
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="resources/css/bootstrap-3.1.1-dist/js/bootstrap.min.js"></script>
     <script src="resources/css/bootstrap-3.1.1-dist/js/docs.min.js"></script>
+    -->
   </body>
 </html>

@@ -10,6 +10,6 @@
     <meta name="author" content="Richard Riviere">
 	<title><spring:message code="title.mooMoney"/></title>
 	<base href="<c:out value='${pageContext.request.scheme}' />://<c:out value='${pageContext.request.serverName}' />:<c:out value='${pageContext.request.serverPort}' /><c:out value='${pageContext.request.contextPath}' />/" />	
-	<%@ include file="/WEB-INF/pages/common/headerCssDashboard.jspf" %> 
+	<%@ include file="/WEB-INF/pages/common/headerLoginCss.jspf" %> 
 	<%@ include file="/WEB-INF/pages/common/headerJs.jspf" %> 
 </head>

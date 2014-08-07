@@ -1,4 +1,4 @@
-  <%@ include file="/WEB-INF/pages/common/header.jspf" %>
+  <%@ include file="/WEB-INF/pages/common/headerLogin.jspf" %>
   <body>
     <!-- Docs page layout -->
     <div class="bs-docs-header" id="content">
@@ -39,8 +39,5 @@
 		</c:choose>			 	
     </div> <!-- /container -->
 
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
   </body>
 </html>
