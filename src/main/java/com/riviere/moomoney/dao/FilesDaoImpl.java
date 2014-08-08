@@ -3,16 +3,21 @@ package com.riviere.moomoney.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.HashMap;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.PreparedStatementCreator;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 
-import com.riviere.moomoney.dao.mapper.FileRowMapper;
+import com.riviere.moomoney.dao.mapper.csv.FinancialTransactionMapper;
+import com.riviere.moomoney.dao.mapper.db.FileRowMapper;
 import com.riviere.moomoney.domain.FileMeta;
+import com.riviere.moomoney.domain.FinancialTransaction;
 import com.riviere.moomoney.exception.MooMoneyException;
+import com.riviere.moomoney.util.DaoUtils;
  
 public class FilesDaoImpl extends AbstractDao implements FilesDao {
         
@@ -44,13 +49,28 @@ public class FilesDaoImpl extends AbstractDao implements FilesDao {
 	private static final String DELETE_FILE_SQL = 
 			" DELETE FROM file WHERE file_id = ? ";
 	
+	@Autowired
+	FinancialTransactionMapper financialTransactionMapper = new FinancialTransactionMapper();
+	
     public FileMeta getFile(int fileId) throws MooMoneyException {
         FileMeta fileMeta = 
         		(FileMeta) getJdbcTemplate().
         			queryForObject(GET_FILE_SQL, new Object[] {fileId},new FileRowMapper());
         return fileMeta;
     }
-
+    
+	public List<FinancialTransaction> getFileContent(int fileId) {
+		FileMeta file = getFile(fileId);
+		byte[] bytes = file.getBytes();
+		return parseCsvFileContent(bytes);
+	}
+	
+	private List<FinancialTransaction> parseCsvFileContent(byte[] bytes) {
+		List<HashMap<String, String>> records = DaoUtils.parseCsv(bytes, FinancialTransactionMapper.columnNames, true);
+		List<FinancialTransaction> transactions = financialTransactionMapper.mapRow(records);
+		return transactions;
+	} 
+	
     public List<FileMeta> listAllFiles() throws MooMoneyException { 
         List<FileMeta> files = 
         		getJdbcTemplate().query(GET_ALL_FILES, new BeanPropertyRowMapper<FileMeta>(FileMeta.class));

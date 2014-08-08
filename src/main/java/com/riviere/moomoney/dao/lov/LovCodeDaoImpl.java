@@ -6,7 +6,7 @@ import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 
 import com.riviere.moomoney.dao.AbstractDao;
-import com.riviere.moomoney.dao.mapper.LovMapExtractor;
+import com.riviere.moomoney.dao.mapper.db.LovMapExtractor;
 
 /**
  * Concrete implementation of list of values data access object

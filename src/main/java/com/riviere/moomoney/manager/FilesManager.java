@@ -3,6 +3,7 @@ package com.riviere.moomoney.manager;
 import java.util.List;
 
 import com.riviere.moomoney.domain.FileMeta;
+import com.riviere.moomoney.domain.FinancialTransaction;
 
 
 
@@ -15,6 +16,7 @@ import com.riviere.moomoney.domain.FileMeta;
 public interface FilesManager {
     
 	public FileMeta getFile(int fileId);
+	public List<FinancialTransaction> getFileContent(int fileId);
     public List<FileMeta> listAllFiles();
     public long saveFile(final FileMeta file);
     public void deleteFile(int id);

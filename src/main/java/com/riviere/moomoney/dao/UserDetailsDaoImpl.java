@@ -8,7 +8,7 @@ import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
 import com.riviere.moomoney.constants.SecurityConstants;
-import com.riviere.moomoney.dao.mapper.UserRowMapper;
+import com.riviere.moomoney.dao.mapper.db.UserRowMapper;
 import com.riviere.moomoney.domain.MooMoneyUser;
 
 /**

@@ -1,4 +1,4 @@
-package com.riviere.moomoney.dao.mapper;
+package com.riviere.moomoney.dao.mapper.db;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;

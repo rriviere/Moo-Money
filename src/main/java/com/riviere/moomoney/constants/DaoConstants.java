@@ -8,4 +8,7 @@ package com.riviere.moomoney.constants;
  */
 public class DaoConstants {
 	public static final String SQL_LIKE_OPERATOR = "%";
+	
+	// date formats
+	public static final String DATE_FORMAT_AU = "dd/MM/yyyy";
 }

@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.springframework.jdbc.core.JdbcTemplate;
 
-import com.riviere.moomoney.dao.mapper.TagRowMapper;
+import com.riviere.moomoney.dao.mapper.db.TagRowMapper;
 import com.riviere.moomoney.domain.Tag;
 
 /**
