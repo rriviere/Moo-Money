@@ -1,4 +1,4 @@
-package com.riviere.moomoney.controller;
+package com.riviere.moomoney.controller.ui;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

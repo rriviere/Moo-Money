@@ -6,7 +6,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Component;
 
-import com.riviere.moomoney.domain.FinancialTransaction;
+import com.riviere.moomoney.domain.Transaction;
 import com.riviere.moomoney.util.DaoUtils;
 
 /**
@@ -14,7 +14,7 @@ import com.riviere.moomoney.util.DaoUtils;
  *
  */
 @Component
-public class FinancialTransactionMapper implements CsvRowMapper<List<FinancialTransaction>> {
+public class CsvTransactionMapper implements CsvRowMapper<List<Transaction>> {
 	
 	private static final String TRAN_DATE = "tranDate";
 	private static final String TRAN_DESCRIPTION = "tranDescription";
@@ -23,10 +23,10 @@ public class FinancialTransactionMapper implements CsvRowMapper<List<FinancialTr
 	
 	public static final String[] columnNames = { TRAN_DATE, TRAN_DESCRIPTION, DEBIT, CREDIT};
 	
-    public List<FinancialTransaction> mapRow(List<HashMap<String, String>> records){
-		ArrayList<FinancialTransaction> transactions = new ArrayList<FinancialTransaction>();
+    public List<Transaction> mapRow(List<HashMap<String, String>> records){
+		ArrayList<Transaction> transactions = new ArrayList<Transaction>();
 		for (HashMap<String, String> record : records) {
-			FinancialTransaction transaction = new FinancialTransaction();
+			Transaction transaction = new Transaction();
 			String tranDate = (String)record.get(TRAN_DATE);
 			if (tranDate!=null){
 				transaction.setTranDate(DaoUtils.convertStringToAuDate(tranDate));

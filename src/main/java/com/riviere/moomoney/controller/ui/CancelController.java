@@ -1,4 +1,4 @@
-package com.riviere.moomoney.controller;
+package com.riviere.moomoney.controller.ui;
 
 import java.util.List;
 

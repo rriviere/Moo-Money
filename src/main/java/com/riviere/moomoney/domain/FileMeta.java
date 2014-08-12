@@ -3,8 +3,9 @@ package com.riviere.moomoney.domain;
 import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 
 @JsonIgnoreProperties({"bytes"})
-public class FileMeta {
+public class FileMeta extends AbstractDomainObject {
 
+	private static final long serialVersionUID = -7823425900594411680L;
 	private Long fileId;
 	private String fileName;
 	private String fileNotes;

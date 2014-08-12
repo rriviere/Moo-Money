@@ -1,0 +1,23 @@
+<%@ include file="/WEB-INF/pages/common/headerInclude.jspf" %> 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="This is the login page for the moo money application">
+    <meta name="author" content="Richard Riviere">
+	<title><spring:message code="title.mooMoney"/></title>
+	<base href="<c:out value='${pageContext.request.scheme}' />://<c:out value='${pageContext.request.serverName}' />:<c:out value='${pageContext.request.serverPort}' /><c:out value='${pageContext.request.contextPath}' />/" />	
+	<%@ include file="/WEB-INF/pages/common/headerCss.jspf" %> 
+	<%@ include file="/WEB-INF/pages/common/headerJs.jspf" %>
+	
+	<!-- tags input css -->
+	<link rel="stylesheet" href="resources/css/bootstrap-tagsinput/bootstrap-tagsinput.css">
+	<link rel="stylesheet" href="resources/css/bootstrap-tagsinput/app.css">
+    
+    <!-- tags input javascript -->
+	<script src="resources/js/bootstrap-tagsinput/typeahead.bundle.js"></script>
+    <script src="resources/js/bootstrap-tagsinput/bootstrap-tagsinput.min.js"></script>
+</head>

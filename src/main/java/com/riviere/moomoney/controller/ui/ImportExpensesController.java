@@ -1,18 +1,12 @@
-package com.riviere.moomoney.controller;
-
-import java.util.List;
+package com.riviere.moomoney.controller.ui;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-
-import com.riviere.moomoney.domain.FileMeta;
-import com.riviere.moomoney.manager.FilesManager;
 
 
 /**
@@ -23,29 +17,15 @@ import com.riviere.moomoney.manager.FilesManager;
  * @date 24/04/2014
  */
 @Controller
-@RequestMapping(value = "/fileUploads.htm")
-public class UploadController {
+@RequestMapping(value = "/importExpenses.htm")
+public class ImportExpensesController {
 	
-	@Autowired
-	FilesManager filesManager;
-	
-	/**
-	 * Handle successful login.
-	 * 
-	 * @param model the spring mvc model
-	 * @param servletRequest
-	 * @param servletResponse
-	 * @return the spring mvc view
-	 */
 	@RequestMapping(method = RequestMethod.GET)
-	public String showForm (
+	public String home(
 			ModelMap model,
 			final HttpServletRequest servletRequest,
 			final HttpServletResponse servletResponse) {
-		List<FileMeta> files = filesManager.listAllFiles();
-		model.addAttribute("files", files);
-		return "uploads";
+		
+		return "importExpenses";
 	}
-	
-	
 }

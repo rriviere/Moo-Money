@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.riviere.moomoney.dao.FilesDao;
 import com.riviere.moomoney.domain.FileMeta;
-import com.riviere.moomoney.domain.FinancialTransaction;
+import com.riviere.moomoney.domain.Transaction;
 
 @Service
 public class FilesManagerImpl implements FilesManager {
@@ -19,7 +19,7 @@ public class FilesManagerImpl implements FilesManager {
 		return filesDao.getFile(fileId);
 	}
 	
-	public List<FinancialTransaction> getFileContent(int fileId) {
+	public List<Transaction> getFileContent(int fileId) {
 		return filesDao.getFileContent(fileId);
 	}	
 

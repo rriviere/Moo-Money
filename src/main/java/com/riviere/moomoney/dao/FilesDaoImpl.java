@@ -12,10 +12,10 @@ import org.springframework.jdbc.core.PreparedStatementCreator;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 
-import com.riviere.moomoney.dao.mapper.csv.FinancialTransactionMapper;
+import com.riviere.moomoney.dao.mapper.csv.CsvTransactionMapper;
 import com.riviere.moomoney.dao.mapper.db.FileRowMapper;
 import com.riviere.moomoney.domain.FileMeta;
-import com.riviere.moomoney.domain.FinancialTransaction;
+import com.riviere.moomoney.domain.Transaction;
 import com.riviere.moomoney.exception.MooMoneyException;
 import com.riviere.moomoney.util.DaoUtils;
  
@@ -49,8 +49,10 @@ public class FilesDaoImpl extends AbstractDao implements FilesDao {
 	private static final String DELETE_FILE_SQL = 
 			" DELETE FROM file WHERE file_id = ? ";
 	
+	private static final String FILE_ID = "FILE_ID";
+	
 	@Autowired
-	FinancialTransactionMapper financialTransactionMapper = new FinancialTransactionMapper();
+	CsvTransactionMapper financialTransactionMapper = new CsvTransactionMapper();
 	
     public FileMeta getFile(int fileId) throws MooMoneyException {
         FileMeta fileMeta = 
@@ -59,15 +61,15 @@ public class FilesDaoImpl extends AbstractDao implements FilesDao {
         return fileMeta;
     }
     
-	public List<FinancialTransaction> getFileContent(int fileId) {
+	public List<Transaction> getFileContent(int fileId) {
 		FileMeta file = getFile(fileId);
 		byte[] bytes = file.getBytes();
 		return parseCsvFileContent(bytes);
 	}
 	
-	private List<FinancialTransaction> parseCsvFileContent(byte[] bytes) {
-		List<HashMap<String, String>> records = DaoUtils.parseCsv(bytes, FinancialTransactionMapper.columnNames, true);
-		List<FinancialTransaction> transactions = financialTransactionMapper.mapRow(records);
+	private List<Transaction> parseCsvFileContent(byte[] bytes) {
+		List<HashMap<String, String>> records = DaoUtils.parseCsv(bytes, CsvTransactionMapper.columnNames, true);
+		List<Transaction> transactions = financialTransactionMapper.mapRow(records);
 		return transactions;
 	} 
 	
@@ -84,7 +86,7 @@ public class FilesDaoImpl extends AbstractDao implements FilesDao {
     		getJdbcTemplate().update(new PreparedStatementCreator() {
  
     			public PreparedStatement createPreparedStatement(Connection con) throws SQLException {
-    				PreparedStatement statement = con.prepareStatement(SAVE_FILE_SQL, new String[]{"FILE_ID"});
+    				PreparedStatement statement = con.prepareStatement(SAVE_FILE_SQL, new String[]{FILE_ID});
                     statement.setString(1, file.getFileName());
                     statement.setString(2, file.getFileNotes());
                     statement.setLong(3, file.getFileSize());

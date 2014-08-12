@@ -18,8 +18,10 @@
 	<bean id="filesDao" 
 		class="com.riviere.moomoney.dao.FilesDaoImpl" parent="abstractJdbcDao" />		
 		
+	<bean id="transactionCategoryDao" 
+		class="com.riviere.moomoney.dao.TransactionCategoryDaoImpl" parent="abstractJdbcDao" />		
 		
-	<bean id="tagDao" 
-		class="com.riviere.moomoney.dao.TagDaoImpl" parent="abstractJdbcDao" />		
+	<bean id="transactionDao" 
+		class="com.riviere.moomoney.dao.TransactionDaoImpl" parent="abstractJdbcDao" />				
 	
 </beans>

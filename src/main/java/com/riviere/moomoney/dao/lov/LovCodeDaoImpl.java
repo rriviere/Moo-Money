@@ -23,7 +23,7 @@ public class LovCodeDaoImpl extends AbstractDao implements LovDao {
 		" SELECT  " +
 		"   code, " +
 		"   code_desc value" +
-		" FROM repman.code_detail  " +
+		" FROM code_detail  " +
 		" WHERE code_type=?  " +
 		" ORDER BY code_seq ";
 

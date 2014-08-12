@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.riviere.moomoney.domain.FileMeta;
-import com.riviere.moomoney.domain.FinancialTransaction;
+import com.riviere.moomoney.domain.Transaction;
 
 
 
@@ -17,7 +17,7 @@ import com.riviere.moomoney.domain.FinancialTransaction;
 public interface FilesDao {
     
 	public FileMeta getFile(int fileId);
-	public List<FinancialTransaction> getFileContent(int fileId);
+	public List<Transaction> getFileContent(int fileId);
     public List<FileMeta> listAllFiles();
     public long saveFile(final FileMeta file);
     public void deleteFile(int id);

@@ -6,13 +6,15 @@ import java.util.Date;
  * @author rriviere
  *
  */
-public class FinancialTransaction extends AbstractDomainObject {
+public class Transaction extends AbstractDomainObject {
 
 	private static final long serialVersionUID = -1289753822767914393L;
 	private Date tranDate;
 	private String tranDescription;
 	private Double debit;
 	private Double credit;
+	private String tranCategoryCode;
+	
 	/**
 	 * @return the tranDate
 	 */
@@ -72,6 +74,18 @@ public class FinancialTransaction extends AbstractDomainObject {
 		bf.append(" credit: " + credit);
 		bf.append(" ]");
 		return bf.toString();
+	}
+	/**
+	 * @return the tranCategoryCode
+	 */
+	public String getTranCategoryCode() {
+		return tranCategoryCode;
+	}
+	/**
+	 * @param tranCategoryCode the tranCategoryCode to set
+	 */
+	public void setTranCategoryCode(String tranCategoryCode) {
+		this.tranCategoryCode = tranCategoryCode;
 	}
 	
 }

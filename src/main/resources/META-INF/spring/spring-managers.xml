@@ -8,7 +8,7 @@
 	<bean id="lovDaoFactory" class="com.riviere.moomoney.factory.LovDaoFactory">
 		<property name="lovDaoMap">
 	        <map>
-	            <entry key="PROJECT" value-ref="lovCodeDao"/>      
+	            <entry key="PROJECT" value-ref="lovCodeDao"/>   
 	        </map>
 	     </property>
     </bean>				    

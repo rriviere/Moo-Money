@@ -29,6 +29,11 @@
         <servlet-name>mvc-dispatcher</servlet-name>
         <url-pattern>*.html</url-pattern>
     </servlet-mapping>
+    
+    <servlet-mapping>
+        <servlet-name>mvc-dispatcher</servlet-name>
+        <url-pattern>*.json</url-pattern>
+    </servlet-mapping>    
 
     <!-- listeners -->
     <listener>
