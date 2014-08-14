@@ -46,17 +46,17 @@ CONSTRAINT pk_transaction_category_keyword PRIMARY KEY (transaction_category_key
 CONSTRAINT fk_tck_tc FOREIGN KEY (tran_category_code) REFERENCES transaction_category(tran_category_code)   
 );
 
-CREATE TABLE transaction (
-   transaction_id INT UNSIGNED NOT NULL AUTO_INCREMENT,
-   transaction_date DATE NOT NULL,
-   description VARCHAR(100) NOT NULL,
-   debit NUMERIC(15,2),
-   credit NUMERIC(15,2),
-   tran_category_code VARCHAR(50),
-   receipt LONGBLOB,
-CONSTRAINT pk_transaction PRIMARY KEY (transaction_id),
-CONSTRAINT fk_ft_tcc FOREIGN KEY (tran_category_code) REFERENCES transaction_category(tran_category_code)   
-);
+CREATE TABLE IF NOT EXISTS `transaction` (
+  `transaction_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `transaction_date` date NOT NULL,
+  `description` varchar(100) NOT NULL,
+  `debit` decimal(15,2) DEFAULT NULL,
+  `credit` decimal(15,2) DEFAULT NULL,
+  `tran_category_code` varchar(50) DEFAULT NULL,
+  `receipt` bigint(20) DEFAULT NULL,
+  PRIMARY KEY (`transaction_id`),
+  KEY `fk_ft_tcc` (`tran_category_code`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- USER INSERTS
 INSERT INTO users(username,password,firstname,lastname,project,enabled) VALUES ('richard','d8d7b0944cf2b88336c9afe487329939','richard','riviere','all',TRUE);

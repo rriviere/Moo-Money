@@ -22,6 +22,9 @@ public class TransactionDaoImpl extends AbstractDao implements TransactionDao {
 			" INSERT INTO transaction ( transaction_date, description, debit, credit, tran_category_code)"
 			+ "	VALUES (?, ?, ?, ?, ?) ";
 	
+	private static final String UPDATE_TRANSACTION_RECEIPT_SQL = 
+			" UPDATE transaction SET receipt=? WHERE transaction_id=?";
+	
 	private static final String TRANSACTION_ID = "TRANSACTION_ID";
 	
     public long saveTransaction(final Transaction transaction) throws MooMoneyException {
@@ -44,7 +47,7 @@ public class TransactionDaoImpl extends AbstractDao implements TransactionDao {
                     Double debit = transaction.getDebit();
                     statement.setDouble(3, debit);
 
-                    Double credit = transaction.getDebit();
+                    Double credit = transaction.getCredit();
                     statement.setDouble(4, credit);
                     
                     String tranCategoryCode = transaction.getTranCategoryCode();
@@ -59,4 +62,15 @@ public class TransactionDaoImpl extends AbstractDao implements TransactionDao {
         }
     	return key;
     }	
+    
+    public Long updateTransactionReceipt(long transactionId, long fileId)
+    		throws MooMoneyException {
+    	try {
+            getJdbcTemplate().update(UPDATE_TRANSACTION_RECEIPT_SQL, new Object[] {fileId, transactionId});
+        } catch (Exception ex) {
+        	ex.printStackTrace();
+            throw new MooMoneyException("updateTransactionReceipt Exception", ex);
+        }
+    	return transactionId;
+    }
 }

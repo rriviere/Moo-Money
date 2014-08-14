@@ -2,6 +2,9 @@
 <!-- header files									 		 		-->
 <!-- ====================================================================== -->
   <%@ include file="/WEB-INF/pages/common/headerWithTagsInput.jspf" %>
+  
+  <link href="resources/css/custom-moo-money.css" type="text/css" rel="stylesheet" />
+	
   <script type="text/javascript" src="<c:url value="resources/js/pages/parseTransactions.js" />"></script>
 <!-- end header files -->  
   <body>
@@ -34,18 +37,19 @@
                 </tr>
               </thead>
               <tbody>
-				<c:forEach items="${transactions}" var="element"> 
-				  <tr>
+				<c:forEach items="${transactions}" var="element" varStatus="count"> 
+				  <tr class="transaction-row" data-count="${count.count}">
 				    <td><fmt:formatDate pattern="dd/MM/yyyy" value="${element.tranDate}"/></td>
 				    <td class="colTranDesc">${element.tranDescription}</td>
 				    <td>${element.debit}</td>
 				    <td>${element.credit}</td>
-				    <td class="colCategory"><input type="text" class="eetag" name="tag"></td>
+				    <td class="colCategory"><input type="text" value="Loading..." class="eetag" name="tag" data-desc="${element.tranDescription}"></td>
 				    <td>
 			            <div class="input-group">
 			                <span class="input-group-btn">
 			                    <span class="btn btn-primary btn-file">
-			                        Browse&hellip; <input type="file" multiple>
+			                        Browse&hellip; <input type="file" name="files[]"
+			data-url="controller/upload.htm"  disabled="disabled">
 			                    </span>
 			                </span>
 			                <input type="text" class="form-control" readonly>
@@ -53,11 +57,15 @@
 			            <span class="help-block">
 			                Press browse to upload a file..
 			            </span>
+			            <div id="p-${count.count}" class="progress">
+							<div class="bar" style="width: 0%;"></div>
+						</div>
 				    </td>
 				  </tr>
 				</c:forEach>              
               </tbody>
             </table>
+            <div styl="float:right;"><input type="button" id="save" value="Save" ></div>
           </div>
         </div>
       </div>

@@ -32,4 +32,9 @@ public class TransactionManagerImpl implements TransactionManager {
 		}
 		return createdTransactionIds;
 	}
+	
+	public Long updateTransactionReceipt(long transactionId, long fileId)
+			throws MooMoneyException {
+		return transactionDao.updateTransactionReceipt(transactionId, fileId);
+	}
 }

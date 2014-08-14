@@ -27,12 +27,15 @@ public class TransactionCategoryDaoImpl extends AbstractDao implements Transacti
 	
 	private static final String TRANSACTION_CATEGORY_SELECT_BY_KEYWORD_SQL = 
 		"    SELECT   " +
-		"       tck.transaction_category_keyword_id, " +
-		"       tck.transaction_category_keyword, " +
-		"       tck.tran_category_code " +
+		"       tc.tran_category_code, " +
+		"       tc.tran_category_desc, " +
+		"       tc.tran_category_seq, " +
+		"       tc.btn_type " +
 		"    FROM transaction_category tc, transaction_category_keyword tck " +
 		"    WHERE tc.tran_category_code = tck.tran_category_code " +
 		"    AND tck.transaction_category_keyword='Bupa' ";
+	
+	
 
 	public List<TransactionCategory> getTransactionCategories() throws MooMoneyException {
 		List<TransactionCategory> categories = null;
@@ -53,10 +56,11 @@ public class TransactionCategoryDaoImpl extends AbstractDao implements Transacti
 				getJdbcTemplate()
 				.queryForObject(
 						TRANSACTION_CATEGORY_SELECT_BY_KEYWORD_SQL
-						, new Object[]{phrase},
+						, new Object[]{},
 						new TransactionCategoryRowMapper());
 			
 		}catch(DataAccessException e){
+			e.printStackTrace();
 			throw new MooMoneyException("getTransactionCategoryByKeyword: " + e.getCause());
 		}			
 		return category;

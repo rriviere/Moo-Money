@@ -13,4 +13,5 @@ public interface TransactionManager {
 
 	public long saveTransaction(final Transaction transaction) throws MooMoneyException;
 	public List<Long> saveTransactions(final List<Transaction> transactions)throws MooMoneyException;
+	public Long updateTransactionReceipt(long transactionId, long fileId)throws MooMoneyException;
 }

@@ -10,4 +10,5 @@ import com.riviere.moomoney.exception.MooMoneyException;
 public interface TransactionDao {
 	
 	 public long saveTransaction(final Transaction transaction) throws MooMoneyException;
+	 public Long updateTransactionReceipt(long transactionId, long fileId)throws MooMoneyException;
 }

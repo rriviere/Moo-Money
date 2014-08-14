@@ -5,7 +5,7 @@
 	http://www.springframework.org/schema/beans/spring-beans.xsd">
 	
 	<bean name="cancelController"
-		class="com.riviere.moomoney.controller.CancelController"
+		class="com.riviere.moomoney.controller.ui.CancelController"
 		p:failView="redirect:/home.htm" />
 	
 </beans>
