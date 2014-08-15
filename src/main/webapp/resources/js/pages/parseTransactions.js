@@ -1,5 +1,35 @@
 
 $().ready(function() {
+	
+	$.get("service/transactionCategories.json", {}, function(tdata){
+				var eetags = new Bloodhound({
+					datumTokenizer: Bloodhound.tokenizers.obj.whitespace("tranCategoryDesc"),
+					queryTokenizer: Bloodhound.tokenizers.whitespace,
+					local: tdata
+				});
+				eetags.initialize();
+			
+				var elt = $("input.eetag");
+				elt.tagsinput({
+					maxTags: 1,
+					itemValue: "tranCategoryCode",
+					itemText: "tranCategoryDesc",
+					typeaheadjs: {
+						name: "tranCategoryCode",
+						displayKey: "tranCategoryDesc",
+						source: eetags.ttAdapter()
+					},
+					tagClass: function(item) {
+						switch (item.buttonType) {
+						  case "primary"   : return "label label-primary";
+						  case "important"  : return "label label-danger label-important";
+						  case "success": return "label label-success";
+						  case "default"   : return "label label-default";
+						  case "warning"     : return "label label-warning";
+						}
+					},
+				});	
+			});
 
 	$('.btn-file :file').on('fileselect', function(event, numFiles, label) {
         var input = $(this).parents('.input-group').find(':text'),
@@ -22,34 +52,13 @@ $().on('change', '.btn-file :file', function() {
 });
 $(document).ready(function(){
 $(".eetag").each(function(){
-	if($(this).val()=='Loading...'){
+
 		var currentItem = $(this);
 		var desc = $(this).attr('data-desc');
 		$.get('service/transactionCategoryByKeyword.json',{'phrase': desc},function(data){
-			var source = [];
-			source.push(data);
-			$(currentItem).tagsinput({
-				maxTags: 1,
-				itemValue: "tranCategoryCode",
-				itemText: "tranCategoryDesc",
-				tagClass: function(item) {
-					switch (item.buttonType) {
-					  case "primary"   : return "label label-primary";
-					  case "important"  : return "label label-danger label-important";
-					  case "success": return "label label-success";
-					  case "default"   : return "label label-default";
-					  case "warning"     : return "label label-warning";
-					}
-				},
-				  typeahead: {
-				    source: function(query) {
-				      return source;
-				    }
-				  }
-				});
 			$(currentItem).tagsinput('add', data);
 		});
-   }
+
 });
 
 $("#save").click(function(){
@@ -78,8 +87,9 @@ $("#save").click(function(){
 			        dataType: "json",
 			        done: function (e, fdata) {
 			        	$.post('saveReceipt.htm', {'fileId':fdata.result[0].fileId, 'tranId':$($(currentRow).find("td").get(0)).attr("data-id") }, function(rdata){ 
-			        		 $(currentRow).find(".input-group").after("<a href='controller/get/"+fdata.result[0].fileId+".htm' class='btn btn-danger'>View</a>");
-			        		 $(currentRow).find(".input-group").remove();
+			        		 $(currentRow).find(".input-group .btn-file").after("<a  style='width:85px;' href='controller/get/"+fdata.result[0].fileId+".htm' class='btn btn-danger'>View</a>");
+			        		 $(currentRow).find(".input-group .btn-file").remove();
+			        		 $(currentRow).find(".input-group .form-control").val(fdata.result[0].fileName);
 			        		 $(currentRow).find("td #p-"+$(currentRow).attr("data-count")).remove();
 			        		 $(currentRow).find("td .help-block").text("Click here to see Receipt");
 			        	 });
@@ -103,7 +113,7 @@ $("#save").click(function(){
 		}
 		});
 	});
-	
+	$(".page-header").after("<mark>Expenses are successfully saved.</mark>");
 	
 });
 });

@@ -43,7 +43,7 @@
 				    <td class="colTranDesc">${element.tranDescription}</td>
 				    <td>${element.debit}</td>
 				    <td>${element.credit}</td>
-				    <td class="colCategory"><input type="text" value="Loading..." class="eetag" name="tag" data-desc="${element.tranDescription}"></td>
+				    <td class="colCategory"><input type="text"  class="eetag" name="tag" data-desc="${element.tranDescription}"></td>
 				    <td>
 			            <div class="input-group">
 			                <span class="input-group-btn">
