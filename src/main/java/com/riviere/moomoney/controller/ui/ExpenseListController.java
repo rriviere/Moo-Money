@@ -22,7 +22,7 @@ import com.ibm.icu.text.SimpleDateFormat;
 import com.riviere.moomoney.domain.Transaction;
 import com.riviere.moomoney.manager.FilesManager;
 import com.riviere.moomoney.manager.TransactionManager;
-import com.riviere.moomoney.util.DateDeserializer;
+
 
 
 /**
