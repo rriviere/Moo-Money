@@ -32,7 +32,7 @@
                   <th class="col-md-3">Description</th>
                   <th class="col-md-1">Debit</th>
                   <th class="col-md-1">Credit</th>
-                  <th class="col-md-3">Category</th>
+                  <th class="col-md-2">Category</th>
                   <th class="col-md-3">Receipt</th>
                 </tr>
               </thead>
@@ -43,32 +43,36 @@
 				    <td class="colTranDesc">${element.tranDescription}</td>
 				    <td>${element.debit}</td>
 				    <td>${element.credit}</td>
-				    <td class="colCategory"><input type="text"  class="eetag" name="tag" data-desc="${element.tranDescription}"></td>
+				    <td class="colCategory"><input type="text" class="eetag" name="tag" data-desc="${element.tranDescription}"></td>
 				    <td>
-			            <div class="input-group">
-			                <span class="input-group-btn">
-			                    <span class="btn btn-primary btn-file">
-			                        Browse&hellip; <input type="file" name="files[]"
-			data-url="controller/upload.htm"  disabled="disabled">
-			                    </span>
-			                </span>
-			                <input type="text" class="form-control" readonly>
-			            </div>
-			            <span class="help-block">
-			                Press browse to upload a file..
-			            </span>
-			            <div id="p-${count.count}" class="progress">
-							<div class="bar" style="width: 0%;"></div>
-						</div>
+				    	<fieldset disabled="disabled">
+				            <div class="input-group">
+				                <span class="input-group-btn">
+				                    <span class="btn btn-primary btn-file">
+				                        Browse&hellip; 
+				                        <input type="file" name="files[]" data-url="controller/upload.htm">
+				                    </span>
+				                </span>
+				                <input type="text" class="form-control" readonly>
+				            </div>
+				            <span class="help-block">
+				                Press browse to upload a file..
+				            </span>
+				            <div id="p-${count.count}" class="progress">
+								<div class="bar" style="width: 0%;"></div>
+							</div>
+						</fieldset>
 				    </td>
 				  </tr>
 				</c:forEach>              
               </tbody>
             </table>
-            <div styl="float:right;"><input type="button" id="save" value="Save" ></div>
+            <!-- Standard button -->
+			<div><button type="button" id="save" class="btn btn-primary">Save Transactions</button></div>
           </div>
         </div>
       </div>
     </div>
+	<div id="totopscroller"> </div>    
   </body>
 </html>

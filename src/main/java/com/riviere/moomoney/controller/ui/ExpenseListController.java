@@ -44,7 +44,7 @@ public class ExpenseListController {
 	
 	@RequestMapping(value = "/expenseList.htm", method = RequestMethod.GET)
 	public String showForm(ModelMap model) {
-		List<Transaction> transactions = filesManager.getFileContent(1);
+		List<Transaction> transactions = filesManager.getFileContent(4);
 		model.addAttribute("transactions", transactions);
 		return "parseTransactions";
 	}

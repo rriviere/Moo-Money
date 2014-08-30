@@ -20,6 +20,7 @@
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
           <h1 class="page-header">Uploads</h1>
 
+		  <!-- 
 	      <div>	        
 	        <iframe id="uploadFrame" 
 	    		name="uploadFrame" 		
@@ -27,6 +28,19 @@
 	    		src="importExpenses.htm">
 	    	</iframe>    	 
 	      </div>
+	       -->
+			<div style="width: 500px; padding: 20px">
+		
+				<input id="fileupload" type="file" name="files[]"
+					data-url="controller/upload.htm" multiple>
+		
+				<div id="dropzone" class="fade well">Drop files here</div>
+		
+				<div id="progress" class="progress">
+					<div class="bar" style="width: 0%;"></div>
+				</div>
+		
+			</div>	       
 
 
           <h2 class="sub-header">Uploaded documents</h2>

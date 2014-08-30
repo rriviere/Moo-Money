@@ -56,5 +56,21 @@ public class TransactionCategory extends AbstractDomainObject {
 	public void setButtonType(String buttonType) {
 		this.buttonType = buttonType;
 	}
+	
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		StringBuffer transactionCategory = new StringBuffer();
+		transactionCategory.append(getClass().getSimpleName());
+		transactionCategory.append(" [ ");
+		transactionCategory.append(" tranCategoryCode : " + tranCategoryCode);
+		transactionCategory.append(" tranCategoryDesc : " + tranCategoryDesc);
+		transactionCategory.append(" tranCategorySeq : " + tranCategorySeq);
+		transactionCategory.append(" buttonType : " + buttonType);
+		transactionCategory.append(" ] ");
+		return transactionCategory.toString();
+	}	
 
 }

@@ -140,13 +140,13 @@
 	<!-- ==============================	-->
 	<!--      Application Loggers	 	-->
 	<!-- ============================== --> 
-    <logger name="com.myer.reporting" additivity="false">   
+    <logger name="com.riviere.moomoney" additivity="false">   
     	<level value="info" />
     	<appender-ref ref="rep.man.application.file" />    
     	<appender-ref ref="rep.man.debug.file" />
     </logger>
     
-	<logger name="com.myer.reporting.interceptor.ExecuteTimeInterceptor" additivity="false">
+	<logger name="com.riviere.moomoney.interceptor.ExecuteTimeInterceptor" additivity="false">
 		<level value="info" />
 		<appender-ref ref="rep.man.servlet.file" />
 	</logger> 
@@ -157,7 +157,7 @@
     	<appender-ref ref="rep.man.debug.file" />
     </logger>
     
-    <logger name="com.myer.reporting.security" additivity="false">
+    <logger name="com.riviere.moomoney.security" additivity="false">
     	<level value="info" />   
     	<appender-ref ref="rep.man.security.file" />    
     	<appender-ref ref="rep.man.debug.file" />

@@ -12,4 +12,7 @@
 	<script type="text/javascript" src="<c:url value="resources/js/jquery.iframe-transport.js" />"></script>
 	<script type="text/javascript" src="<c:url value="resources/js/jquery.fileupload.js" />"></script>
 	<script type="text/javascript" src="<c:url value="resources/js/docs.min.js" />"></script>
+	<script type="text/javascript" src="<c:url value="resources/js/scrollToTop/jquery.totop.js" />"></script>
+	<script type="text/javascript" src="<c:url value="resources/js/bootstrap-dialog/bootstrap-dialog.js" />"></script>
+	
 	

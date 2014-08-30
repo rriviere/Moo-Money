@@ -1,6 +1,10 @@
 drop table user_roles;
 drop table users;
-drop table files;
+drop table file;
+drop table transaction_category_keyword;
+drop table transaction_category;
+drop table transaction;
+
 
 CREATE TABLE users (
   username VARCHAR(45) NOT NULL,
@@ -18,7 +22,8 @@ CREATE TABLE user_roles (
   	role VARCHAR(45) NOT NULL,
   CONSTRAINT pk_user_roles PRIMARY KEY (user_role_id),
   CONSTRAINT uk_role_username_proj UNIQUE (role,username,project),
-  CONSTRAINT fk_user_role_user FOREIGN KEY (username,project) REFERENCES users (username,project));
+  CONSTRAINT fk_user_role_user FOREIGN KEY (username,project) REFERENCES users (username,project)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1;
   
 CREATE TABLE file (
   	file_id MEDIUMINT(10) unsigned NOT NULL AUTO_INCREMENT,
@@ -28,7 +33,7 @@ CREATE TABLE file (
   	file_type VARCHAR(40) DEFAULT NULL,
   	file longblob DEFAULT NULL,
   CONSTRAINT pk_file PRIMARY KEY (file_id)
-);
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1;
 
 CREATE TABLE transaction_category (
    tran_category_code VARCHAR(50) NOT NULL,
@@ -40,11 +45,13 @@ CONSTRAINT pk_transaction_category PRIMARY KEY (tran_category_code)
 
 CREATE TABLE transaction_category_keyword (
    transaction_category_keyword_id INT UNSIGNED NOT NULL AUTO_INCREMENT,
-   transaction_category_keyword VARCHAR(500) NOT NULL,
+   transaction_category_keyword TEXT NOT NULL,
    tran_category_code VARCHAR(50) NOT NULL,
 CONSTRAINT pk_transaction_category_keyword PRIMARY KEY (transaction_category_keyword_id),
 CONSTRAINT fk_tck_tc FOREIGN KEY (tran_category_code) REFERENCES transaction_category(tran_category_code)   
-);
+)ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1;
+
+ALTER TABLE transaction_category_keyword ADD FULLTEXT(transaction_category_keyword);
 
 CREATE TABLE IF NOT EXISTS `transaction` (
   `transaction_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
@@ -56,7 +63,7 @@ CREATE TABLE IF NOT EXISTS `transaction` (
   `receipt` bigint(20) DEFAULT NULL,
   PRIMARY KEY (`transaction_id`),
   KEY `fk_ft_tcc` (`tran_category_code`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1;
 
 -- USER INSERTS
 INSERT INTO users(username,password,firstname,lastname,project,enabled) VALUES ('richard','d8d7b0944cf2b88336c9afe487329939','richard','riviere','all',TRUE);
@@ -68,25 +75,25 @@ INSERT INTO user_roles (username,project,role) VALUES ('ariane','all','ROLE_LEVE
 
 -- LIST OF VALUES
 INSERT INTO transaction_category (tran_category_code, tran_category_desc,tran_category_seq,btn_type)
-VALUES ('Electricity','Electricity',1,'default');
+VALUES ('Electricity','Electricity',1,'warning');
 
 INSERT INTO transaction_category (tran_category_code, tran_category_desc,tran_category_seq,btn_type)
-VALUES ('CarParking','Car Parking',2,'default');
+VALUES ('CarParking','Car Parking',2,'warning');
 
 INSERT INTO transaction_category (tran_category_code, tran_category_desc,tran_category_seq,btn_type)
-VALUES ('Petrol','Petrol',3,'default');
+VALUES ('Petrol','Petrol',3,'success');
 
 INSERT INTO transaction_category (tran_category_code, tran_category_desc,tran_category_seq,btn_type)
 VALUES ('Groceries','Groceries',4,'default');
 
 INSERT INTO transaction_category (tran_category_code, tran_category_desc,tran_category_seq,btn_type)
-VALUES ('HealthInsurance','Health Insurance',5,'default');
+VALUES ('HealthInsurance','Health Insurance',5,'primary');
 
 INSERT INTO transaction_category (tran_category_code, tran_category_desc,tran_category_seq,btn_type)
 VALUES ('Phone','Phone',6,'default');
 
 INSERT INTO transaction_category (tran_category_code,tran_category_desc,tran_category_seq,btn_type)
-VALUES ('Other','Other',7,'default');
+VALUES ('Other','Other',7,'important');
 
 INSERT INTO transaction_category_keyword (transaction_category_keyword,tran_category_code)
 VALUES ('Telstra','Phone');
@@ -105,3 +112,6 @@ VALUES ('Bupa','HealthInsurance');
 
 
 COMMIT;
+
+insert into file (filename,file_notes,file_size,file_type,file) 
+values ('trans080814-sample.csv','Blah','1024','csv',LOAD_FILE('C:\\GIT\\GitHub\\Moo-Money\\doc\\trans080814-sample.csv'))

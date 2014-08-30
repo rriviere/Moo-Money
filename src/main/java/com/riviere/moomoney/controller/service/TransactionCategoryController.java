@@ -30,6 +30,8 @@ public class TransactionCategoryController extends AbstractServiceController {
 	public @ResponseBody TransactionCategory getTransactionCategoryByKeyword (
 			@RequestParam(value = "phrase") String phrase) {
 		TransactionCategory transactionCategory = transactionCategoryManager.getTransactionCategoryByKeyword(phrase);
+		System.out.println("phrase: " + phrase);
+		System.out.println(transactionCategory);
 		return transactionCategory;
 	}		
 }

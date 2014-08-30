@@ -4,9 +4,15 @@
 	<!-- Bootstrap documentation extras -->
 	<link href="resources/css/bootstrap-3.1.1-dist/css/dashboard.css" rel="stylesheet">
 	
+	<link href="resources/css/bootstrap-dialog/bootstrap-dialog.css" rel="stylesheet">
+	
 	<!-- moo money overrides -->
 	<link href="resources/css/custom-moo-money.css" rel="stylesheet">
-
+	
+	<!-- jquery scroll to top -->
+	<link href="resources/css/scrollToTop/totop.css" rel="stylesheet">
+	<link href="resources/css/scrollToTop/totopFA.css" rel="stylesheet">
+	
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
